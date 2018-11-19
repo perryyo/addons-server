@@ -16,6 +16,7 @@ from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.storage.fallback import FallbackStorage
 from django.core import signing
+from django.core.cache import cache
 from django.core.management import call_command
 from django.db.models.signals import post_save
 from django.http import HttpRequest, SimpleCookie
@@ -224,14 +225,14 @@ def create_sample(name=None, **kw):
     if name is not None:
         kw['name'] = name
     kw.setdefault('percent', 100)
-
-    try:
-        sample = Sample.objects.get(name=name)
+    sample, created = Sample.objects.get_or_create(name=name, defaults=kw)
+    if not created:
         sample.__dict__.update(kw)
         sample.save()
-    except Sample.DoesNotExist:
-        # Using .create() here to make waffle refresh caches properly
-        sample = Sample.objects.create(**kw)
+
+    # Clear caches
+    from waffle.utils import get_setting
+    cache.delete(get_setting(Sample.objects.KEY_SETTING))
 
     return sample
 
@@ -240,14 +241,13 @@ def create_switch(name=None, **kw):
     kw.setdefault('active', True)
     if name is not None:
         kw['name'] = name
-
-    try:
-        switch = Switch.objects.get(name=name)
+    switch, created = Switch.objects.get_or_create(name=name, defaults=kw)
+    if not created:
         switch.__dict__.update(kw)
         switch.save()
-    except Switch.DoesNotExist:
-        # Using .create() here to make waffle refresh caches properly
-        switch = Switch.objects.create(**kw)
+
+    from waffle.utils import get_setting
+    cache.delete(get_setting(Sample.objects.KEY_SETTING))
 
     return switch
 
@@ -256,14 +256,13 @@ def create_flag(name=None, **kw):
     if name is not None:
         kw['name'] = name
     kw.setdefault('everyone', True)
-
-    try:
-        flag = Flag.objects.get(name=name)
+    flag, created = Flag.objects.get_or_create(name=name, defaults=kw)
+    if not created:
         flag.__dict__.update(kw)
         flag.save()
-    except Flag.DoesNotExist:
-        # Using .create() here to make waffle refresh caches properly
-        flag = Flag.objects.create(**kw)
+
+    from waffle.utils import get_setting
+    cache.delete(get_setting(Sample.objects.KEY_SETTING))
 
     return flag
 
