@@ -537,8 +537,8 @@ class TestFeaturedLocale(TestCase):
         assert addon in res.context['featured']
 
         self.change_addon(addon, 'es')
-        cache.delete(memoize_key(
-            'addons:featured', amo.FIREFOX, u'es', amo.ADDON_EXTENSION))
+        cache.delete(memoize_key('addons:featured', amo.FIREFOX, u'en-US'))
+
         res = self.client.get(url)
         assert addon not in res.context['featured']
 
@@ -551,14 +551,14 @@ class TestFeaturedLocale(TestCase):
         category.update(type=amo.ADDON_PERSONA)
 
         addon.addoncategory_set.create(category=category, feature=True)
+
         url = reverse('browse.personas', args=[category.slug])
         res = self.client.get(url)
         assert addon in res.context['featured']
 
         self.change_addoncategory(addon, 'es')
 
-        cache.delete(memoize_key(
-            'addons:featured', amo.FIREFOX, u'es', amo.ADDON_EXTENSION))
+        cache.delete(memoize_key('addons:creatured', category, u'en-US'))
 
         res = self.client.get(url)
         assert addon not in res.context['featured']

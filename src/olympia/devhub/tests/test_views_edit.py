@@ -4,6 +4,7 @@ import os
 
 from django.core.files.storage import default_storage as storage
 from django.db.models import Q
+from django.core.cache import cache
 
 import mock
 
@@ -26,6 +27,7 @@ from olympia.constants.categories import CATEGORIES_BY_ID
 from olympia.devhub.forms import DescribeForm
 from olympia.devhub.views import edit_theme
 from olympia.lib.akismet.models import AkismetReport
+from olympia.lib.cache import memoize_key
 from olympia.tags.models import AddonTag, Tag
 from olympia.users.models import UserProfile
 from olympia.versions.models import VersionPreview
@@ -261,6 +263,9 @@ class BaseTestEditDescribe(BaseTestEdit):
         FeaturedCollection.objects.create(collection=c_addon.collection,
                                           application=amo.FIREFOX.id)
 
+        # Clear relevant featured caches
+        cache.delete(memoize_key('addons:featured', amo.FIREFOX, None))
+
     @override_switch('akismet-spam-check', active=False)
     def test_akismet_waffle_off(self):
         data = self.get_dict()
@@ -457,8 +462,8 @@ class TestEditDescribeListed(BaseTestEditDescribe, L10nTestsMixin):
     def test_edit_categories_add_featured(self):
         """Ensure that categories cannot be changed for featured add-ons."""
         self._feature_addon()
-
         self.cat_initial['categories'] = [22, 1]
+
         response = self.client.post(self.describe_edit_url, self.get_dict())
         addon_cats = self.get_addon().categories.values_list('id', flat=True)
 

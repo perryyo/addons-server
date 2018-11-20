@@ -492,7 +492,10 @@ class TestFileViewer(FilesBase, TestCase):
         url = res['Location']
         res = self.client.get(url)
         assert res.status_code == 200
-        cache.delete(self.file_viewer._cache_key())
+
+        token = urlparse.urlparse(url).query[6:]
+        cache.delete('token:{}'.format(token))
+
         res = self.client.get(url)
         assert res.status_code == 403
 
