@@ -230,9 +230,7 @@ def create_sample(name=None, **kw):
         sample.__dict__.update(kw)
         sample.save()
 
-    # Clear caches
-    from waffle.utils import get_setting
-    cache.delete(get_setting(Sample.objects.KEY_SETTING))
+    sample.flush()
 
     return sample
 
@@ -246,8 +244,7 @@ def create_switch(name=None, **kw):
         switch.__dict__.update(kw)
         switch.save()
 
-    from waffle.utils import get_setting
-    cache.delete(get_setting(Sample.objects.KEY_SETTING))
+    switch.flush()
 
     return switch
 
@@ -261,8 +258,7 @@ def create_flag(name=None, **kw):
         flag.__dict__.update(kw)
         flag.save()
 
-    from waffle.utils import get_setting
-    cache.delete(get_setting(Sample.objects.KEY_SETTING))
+    flag.flush()
 
     return flag
 

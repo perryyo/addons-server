@@ -397,7 +397,6 @@ class TestUserEditForm(UserFormBase):
                 'email': u'jbalogh@mozilla.com'})
 
     def test_basket_sync_behind_flag(self):
-
         with patch('basket.base.request', autospec=True) as request_call:
             request_call.return_value = {
                 'status': 'ok', 'token': '123',
