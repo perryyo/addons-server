@@ -10,7 +10,6 @@ from datetime import timedelta
 
 from django import forms
 from django.conf import settings
-from django.core.files.storage import default_storage
 
 import flufl.lock
 import lxml
@@ -18,6 +17,7 @@ import mock
 import pytest
 
 from defusedxml.common import EntitiesForbidden, NotSupportedError
+from waffle.testutils import override_switch
 
 from olympia import amo
 from olympia.amo.tests import TestCase
@@ -155,10 +155,17 @@ class TestManifestJSONExtractor(TestCase):
         extractor = utils.ManifestJSONExtractor(zipfile.ZipFile(fake_zip))
         assert extractor.data == data
 
-    def test_guid(self):
+    def test_guid_from_applications(self):
         """Use applications>gecko>id for the guid."""
         assert self.parse(
             {'applications': {
+                'gecko': {
+                    'id': 'some-id'}}})['guid'] == 'some-id'
+
+    def test_guid_from_browser_specific_settings(self):
+        """Use applications>gecko>id for the guid."""
+        assert self.parse(
+            {'browser_specific_settings': {
                 'gecko': {
                     'id': 'some-id'}}})['guid'] == 'some-id'
 
@@ -256,6 +263,16 @@ class TestManifestJSONExtractor(TestCase):
         app = apps[0]
         assert app.appdata == amo.FIREFOX
         assert app.min.version == amo.DEFAULT_WEBEXT_MIN_VERSION
+        assert app.max.version == amo.DEFAULT_WEBEXT_MAX_VERSION
+
+        # But if 'browser_specific_settings' is used, it's higher min version.
+        data = {'browser_specific_settings': {'gecko': {'id': 'some-id'}}}
+        apps = self.parse(data)['apps']
+        assert len(apps) == 1  # Only Firefox for now.
+        app = apps[0]
+        assert app.appdata == amo.FIREFOX
+        assert app.min.version == (
+            amo.DEFAULT_WEBEXT_MIN_VERSION_BROWSER_SPECIFIC)
         assert app.max.version == amo.DEFAULT_WEBEXT_MAX_VERSION
 
     def test_is_webextension(self):
@@ -383,6 +400,7 @@ class TestManifestJSONExtractor(TestCase):
                 )
 
     @mock.patch('olympia.addons.models.resolve_i18n_message')
+    @override_switch('content-optimization', active=False)
     def test_mozilla_trademark_for_prefix_allowed(self, resolve_message):
         resolve_message.return_value = 'Notify for Mozilla'
 
@@ -958,52 +976,58 @@ class TestXMLVulnerabilities(TestCase):
         lxml.etree.XMLParser(resolve_entities=False)
 
 
-def test_extract_header_img():
+class TestGetBackgroundImages(TestCase):
     file_obj = os.path.join(
         settings.ROOT, 'src/olympia/devhub/tests/addons/static_theme.zip')
-    data = {'images': {'headerURL': 'weta.png'}}
-    dest_path = tempfile.mkdtemp()
-    header_file = dest_path + '/weta.png'
-    assert not default_storage.exists(header_file)
 
-    utils.extract_header_img(file_obj, data, dest_path)
-    assert default_storage.exists(header_file)
-    assert default_storage.size(header_file) == 126447
+    def test_get_background_images(self):
+        data = {'images': {'headerURL': 'weta.png'}}
 
+        images = utils.get_background_images(self.file_obj, data)
+        assert 'weta.png' in images
+        assert len(images.items()) == 1
+        assert len(images['weta.png']) == 126447
 
-def test_extract_header_img_missing():
-    file_obj = os.path.join(
-        settings.ROOT, 'src/olympia/devhub/tests/addons/static_theme.zip')
-    data = {'images': {'headerURL': 'missing_file.png'}}
-    dest_path = tempfile.mkdtemp()
-    header_file = dest_path + '/missing_file.png'
-    assert not default_storage.exists(header_file)
+    def test_get_background_images_no_theme_data_provided(self):
+        images = utils.get_background_images(self.file_obj, theme_data=None)
+        assert 'weta.png' in images
+        assert len(images.items()) == 1
+        assert len(images['weta.png']) == 126447
 
-    utils.extract_header_img(file_obj, data, dest_path)
-    assert not default_storage.exists(header_file)
+    def test_get_background_images_missing(self):
+        data = {'images': {'headerURL': 'missing_file.png'}}
 
+        images = utils.get_background_images(self.file_obj, data)
+        assert not images
 
-def test_extract_header_with_additional_imgs():
-    file_obj = os.path.join(
-        settings.ROOT,
-        'src/olympia/devhub/tests/addons/static_theme_tiled.zip')
-    data = {'images': {
-        'headerURL': 'empty.png',
-        'additional_backgrounds': [
-            'transparent.gif', 'missing_&_ignored.png', 'weta_for_tiling.png']
-    }}
-    dest_path = tempfile.mkdtemp()
-    header_file = dest_path + '/empty.png'
-    additional_file_1 = dest_path + '/transparent.gif'
-    additional_file_2 = dest_path + '/weta_for_tiling.png'
-    assert not default_storage.exists(header_file)
-    assert not default_storage.exists(additional_file_1)
-    assert not default_storage.exists(additional_file_2)
+    def test_get_background_images_not_image(self):
+        self.file_obj = os.path.join(
+            settings.ROOT,
+            'src/olympia/devhub/tests/addons/static_theme_non_image.zip')
+        data = {'images': {'headerURL': 'not_an_image.js'}}
 
-    utils.extract_header_img(file_obj, data, dest_path)
-    assert default_storage.exists(header_file)
-    assert default_storage.size(header_file) == 332
-    assert default_storage.exists(additional_file_1)
-    assert default_storage.size(additional_file_1) == 42
-    assert default_storage.exists(additional_file_2)
-    assert default_storage.size(additional_file_2) == 93371
+        images = utils.get_background_images(self.file_obj, data)
+        assert not images
+
+    def test_get_background_images_with_additional_imgs(self):
+        self.file_obj = os.path.join(
+            settings.ROOT,
+            'src/olympia/devhub/tests/addons/static_theme_tiled.zip')
+        data = {'images': {
+            'headerURL': 'empty.png',
+            'additional_backgrounds': [
+                'transparent.gif', 'missing_&_ignored.png',
+                'weta_for_tiling.png']
+        }}
+
+        images = utils.get_background_images(self.file_obj, data)
+        assert len(images.items()) == 3
+        assert len(images['empty.png']) == 332
+        assert len(images['transparent.gif']) == 42
+        assert len(images['weta_for_tiling.png']) == 93371
+
+        # And again but only with the header image
+        images = utils.get_background_images(
+            self.file_obj, data, header_only=True)
+        assert len(images.items()) == 1
+        assert len(images['empty.png']) == 332

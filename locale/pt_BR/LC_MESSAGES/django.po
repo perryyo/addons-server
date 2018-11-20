@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REMORA 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-19 12:58+0000\n"
-"PO-Revision-Date: 2018-08-16 15:03+0000\n"
-"Last-Translator: Wolfgang Marcos <eusou@olobo.me>\n"
+"POT-Creation-Date: 2018-11-19 12:58+0000\n"
+"PO-Revision-Date: 2018-11-14 16:44+0000\n"
+"Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,9 @@ msgstr "não são permitidos links"
 
 msgid "This display name cannot be used."
 msgstr "Este nome de apresentação não pode ser usado."
+
+msgid "The homepage field can only be used to link to external websites."
+msgstr ""
 
 msgid "Usernames cannot contain only digits."
 msgstr "Nomes de usuário não pode conter apenas dígitos."
@@ -1978,41 +1981,86 @@ msgstr "Incompatível"
 msgid "Alerts & Updates"
 msgstr "Alertas e atualizações"
 
+msgid "Download Firefox extensions that help you stay up-to-date, track tasks, improve efficiency. Find extensions that reload tabs, manage productivity, and more."
+msgstr ""
+
 msgid "Appearance"
 msgstr "Aparência"
+
+msgid "Download extensions that modify the appearance of websites and the browser Firefox. This category includes extensions for dark themes, tab management, and more."
+msgstr ""
 
 msgid "Bookmarks"
 msgstr "Favoritos"
 
+msgid "Download extensions that enhance bookmarks by password-protecting them, searching for duplicates, finding broken bookmarks, and more."
+msgstr ""
+
 msgid "Download Management"
 msgstr "Gerenciador de downloads"
+
+msgid "Download Firefox extensions that can help download web, music and video content. You can also find extensions to manage downloads, share files, and more."
+msgstr ""
 
 msgid "Feeds, News & Blogging"
 msgstr "Feeds, notícias e blogs"
 
+msgid "Download Firefox extensions that remove clutter so you can stay up-to-date on social media, catch up on blogs, RSS feeds, reduce eye strain, and more."
+msgstr ""
+
 msgid "Games & Entertainment"
 msgstr "Jogos e Entretenimento"
+
+msgid "Download Firefox extensions to boost your entertainment experience. This category includes extensions that can enhance gaming, control video playback, and more."
+msgstr ""
 
 msgid "Language Support"
 msgstr "Suporte ao Idioma"
 
+msgid "Download Firefox extensions that offer language support like grammar check, look-up words, translate text, provide text-to-speech, and more."
+msgstr ""
+
 msgid "Photos, Music & Videos"
 msgstr "Fotos, música e vídeos"
+
+msgid "Download Firefox extensions that enhance photo, music and video experiences. Extensions in this category modify audio and video, reverse image search, and more."
+msgstr ""
 
 msgid "Privacy & Security"
 msgstr "Privacidade e Segurança"
 
+msgid "Download Firefox extensions to browse privately and securely. This category includes extensions to block annoying ads, prevent tracking, manage redirects, and more."
+msgstr ""
+
+msgid "Download Firefox extensions for search and look-up. This category includes extensions that highlight and search text, lookup IP addresses/domains, and more."
+msgstr ""
+
 msgid "Shopping"
 msgstr "Compras"
+
+msgid "Download Firefox extensions that can enhance your online shopping experience with coupon finders, deal finders, review analyzers, more."
+msgstr ""
 
 msgid "Social & Communication"
 msgstr "Social e comunicação"
 
+msgid "Download Firefox extensions to enhance social media and instant messaging. This category includes improved tab notifications, video downloaders, and more."
+msgstr ""
+
 msgid "Tabs"
 msgstr "Abas"
 
+msgid "Download Firefox extension to customize tabs and the new tab page. Discover extensions that can control tabs, change the way you interact with them, and more."
+msgstr ""
+
 msgid "Web Development"
 msgstr "Desenvolvimento Web"
+
+msgid "Download Firefox extensions that feature web development tools. This category includes extensions for GitHub, user agent switching, cookie management, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can be unpredictable and creative, yet useful for those odd tasks."
+msgstr ""
 
 msgid "Animals"
 msgstr "Animais"
@@ -2044,35 +2092,80 @@ msgstr "Esportes"
 msgid "Abstract"
 msgstr "Abstrato"
 
+msgid "Download Firefox artistic and conceptual themes. This category includes colorful palettes and shapes, fantasy landscapes, playful cats, psychedelic flowers."
+msgstr ""
+
 msgid "Causes"
 msgstr "Causas"
+
+msgid "Download Firefox themes for niche interests and topics. This category includes sports themes, holidays, philanthropic causes, nationalities, and much more."
+msgstr ""
 
 msgid "Fashion"
 msgstr "Moda"
 
+msgid "Download Firefox themes that celebrate style of all forms—patterns, florals, textures, models, and more."
+msgstr ""
+
 msgid "Film and TV"
 msgstr "Filme e TV"
+
+msgid "Download Firefox themes with movies and television. This category includes anime like Uchiha Madara, movies like The Matrix, shows (Game of Thrones), and more."
+msgstr ""
+
+msgid "Download Firefox themes with the Firefox browser theme. This category includes colorful, diverse depictions of the Firefox logo, including more general fox themes."
+msgstr ""
 
 msgid "Foxkeh"
 msgstr "Foxkeh"
 
+msgid "Download Firefox themes with the Japanese Firefox. This category includes themes that depict the cute Foxkeh mascot in various poses on diverse landscapes."
+msgstr ""
+
 msgid "Holiday"
 msgstr "Feriado"
+
+msgid "Download Firefox themes with holidays. This category includes Christmas, Halloween, Thanksgiving, St. Patrick’s Day, Easter, Fourth of July, and more."
+msgstr ""
 
 msgid "Music"
 msgstr "Música"
 
+msgid "Download Firefox themes for musical interests and artists. This category includes popular bands like Nirvana and BTS, instruments, music videos, and much more."
+msgstr ""
+
+msgid "Download Firefox themes with animals and natural landscapes. This category includes flowers, sunsets, foxes, seasons, planets, kittens, birds, and more."
+msgstr ""
+
+msgid "Download Firefox themes that are interesting, creative, and unique."
+msgstr ""
+
 msgid "Scenery"
 msgstr "Cenário"
+
+msgid "Download Firefox themes that feature the environment and the natural world. This category includes sunsets, beaches, illustrations, city skylines, and more."
+msgstr ""
 
 msgid "Seasonal"
 msgstr "Sazonal"
 
+msgid "Download Firefox themes for all four seasons—fall, winter, spring, and summer. Autumn leaves, snowy mountain peaks, sunny summer days, and spring flowers."
+msgstr ""
+
 msgid "Solid"
 msgstr "Sólido"
 
+msgid "Download Firefox themes with solid and gradient colors to personalize your browser. This category includes bold reds, pastels, soft greys, and much more."
+msgstr ""
+
+msgid "Download Firefox themes that feature a variety of sports. This category includes country flags, sports teams, soccer, hockey, and more."
+msgstr ""
+
 msgid "Websites"
 msgstr "Sites"
+
+msgid "Download Firefox themes that capture the essence of the web—captivating, unusual, and distinctive."
+msgstr ""
 
 # This is the name/category for a group of tests
 msgid "General"
@@ -2111,29 +2204,62 @@ msgstr "Vídeo"
 msgid "Device Features & Location"
 msgstr "Características do dispositivo e localização"
 
+msgid "Download extensions to enhance Firefox for Android. Perform quick searches, free up system resources, take notes, and more."
+msgstr ""
+
 msgid "Experimental"
 msgstr "Experimental"
+
+msgid "Download Firefox extensions that are regularly updated and ready for public testing. Your feedback informs developers on changes to make in upcoming versions."
+msgstr ""
 
 msgid "Feeds, News, & Blogging"
 msgstr "Feeds, notícias e blogs"
 
+msgid "Download Firefox extensions for news, web feeds, and blogs by removing clutter, utilizing voice readers, and more."
+msgstr ""
+
 msgid "Performance"
 msgstr "Desempenho"
+
+msgid "Download extensions that give Firefox a performance boost. Find extensions that help you be more productive and efficient by blocking annoying ads and more."
+msgstr ""
 
 msgid "Photos & Media"
 msgstr "Fotos e mídia"
 
+msgid "Download Firefox extensions to enhance photos and media. This category includes extensions to reverse search images, capture full page screenshots, and more."
+msgstr ""
+
 msgid "Security & Privacy"
 msgstr "Segurança e Privacidade"
+
+msgid "Download Firefox extensions to surf safely and privately. Discover extensions that can stop sneaky ad trackers in their tracks, easily clear browsing history, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can enhance your online shopping experience by analyzing reviews, finding deals and coupons, and more."
+msgstr ""
 
 msgid "Social Networking"
 msgstr "Redes sociais"
 
+msgid "Download Firefox extensions to enhance your experience on popular social networking websites such as YouTube, GitHub, Reddit, and more."
+msgstr ""
+
 msgid "Sports & Games"
 msgstr "Esportes e Jogos"
 
+msgid "Download Firefox extensions to give your entertainment experience a boost with live stream enhancers, sports updates, and more."
+msgstr ""
+
 msgid "User Interface"
 msgstr "Interface do usuário"
+
+msgid "Download user interface Firefox extensions to alter web pages for easier reading, searching, browsing, and more."
+msgstr ""
+
+msgid "Download odd and interesting extensions that can give Firefox for Android a boost."
+msgstr ""
 
 msgid "All Rights Reserved"
 msgstr "Todos os direitos reservados"
@@ -2201,16 +2327,14 @@ msgstr "Excelente (3)"
 msgid "Manual Reviewer Points"
 msgstr "Pontos do manual do revisor"
 
-#, fuzzy
 msgid "New Legacy Add-on Review"
-msgstr "Nova análise da extensão"
+msgstr "Nova análise de extensão legada"
 
 msgid "Preliminary Add-on Review"
 msgstr "Análise preliminar"
 
-#, fuzzy
 msgid "Updated Legacy Add-on Review"
-msgstr "Análise atualizada"
+msgstr "Análise de extensão legada atualizada"
 
 msgid "New Dictionary Review"
 msgstr "Nova análise do dicionário"
@@ -2263,21 +2387,17 @@ msgstr "A moderação da análise da extensão foi revertida"
 msgid "Add-on Content Review"
 msgstr "Revisão do conteúdo da extensão"
 
-#, fuzzy
 msgid "Add-on Review (Highest Risk)"
-msgstr "Revisão pós-aprovação (risco mais alto)"
+msgstr "Análise de extensão (risco mais elevado)"
 
-#, fuzzy
 msgid "Add-on Review (High Risk)"
-msgstr "Revisão pós-aprovação (risco alto)"
+msgstr "Análise de extensão (risco elevado)"
 
-#, fuzzy
 msgid "Add-on Review (Medium Risk)"
-msgstr "Revisão pós-aprovação (risco médio)"
+msgstr "Análise de extensão (risco médio)"
 
-#, fuzzy
 msgid "Add-on Review (Low Risk)"
-msgstr "Registro de análise da extensão"
+msgstr "Análise de extensão (risco baixo)"
 
 msgid "Level 1"
 msgstr "Nível 1"
@@ -2397,6 +2517,10 @@ msgstr "Por favor, especifique a política de privacidade da sua extensão:"
 msgid "Unsupported file type, please upload an archive file {extensions}."
 msgstr "Tipo de arquivo não suportado, por favor enviar um arquivo no formato {extensions}."
 
+#, fuzzy
+msgid "Invalid or broken archive."
+msgstr "Arquivo inválido."
+
 msgid "View current"
 msgstr "Ver atual"
 
@@ -2412,9 +2536,8 @@ msgstr "Ocorreu um erro ao enviar seu arquivo. Por favor, tente novamente."
 msgid "Override failed validation"
 msgstr "Substituir validação com falha"
 
-#, fuzzy
 msgid "Need to select at least one application."
-msgstr "Você deve selecionar pelo menos uma aplicação compatível."
+msgstr "Precisa selecionar pelo menos uma aplicação."
 
 msgid "Version {version} was uploaded before and deleted."
 msgstr "A versão {version} foi carregada antes e excluída."
@@ -2470,6 +2593,9 @@ msgstr "Nós permitimos e encorajamos atualizar, mas você não pode reverter es
 
 msgid "You cannot update a WebExtensions add-on with a legacy add-on. Your users would not be able to use your new version because Firefox does not support this type of update."
 msgstr "Você não pode atualizar uma extensão WebExtensions com uma extensão legada. Seus usuários não serão capazes de usar sua nova versão porque o Firefox não suporta este tipo de atualização."
+
+msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
+msgstr ""
 
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
 msgstr "Sua chave da API de desenvolvimento foi encontrada no arquivo enviado. Para proteger sua conta a chave deve ser revogada."
@@ -2677,9 +2803,8 @@ msgstr "Desenvolvimento de extensões"
 msgid "Lightweight Themes"
 msgstr "Temas leves"
 
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Notícias para desenvolvedores"
+msgstr "Políticas para desenvolvedores"
 
 msgid "Add-on Validator"
 msgstr "Validador de extensões"
@@ -2810,8 +2935,8 @@ msgid_plural "<b>{0}</b> themes"
 msgstr[0] "<b>{0}</b> tema"
 msgstr[1] "<b>{0}</b> temas"
 
-msgid "Edit Information"
-msgstr "Editar informações"
+msgid "Edit Product Page"
+msgstr ""
 
 msgid "None"
 msgstr "Nenhum(a)"
@@ -2841,13 +2966,11 @@ msgstr ""
 "<p>As extensões podem ter qualquer número de autores com 2 possíveis cargos:</p> <ul> <li><b>Proprietário:</b> pode gerenciar todos os detalhes da extensão, incluindo adicionar e remover outros "
 "autores</li> <li><b>Desenvolvedor:</b> pode gerenciar todos os detalhes da extensão, exceto adicionar ou remover outros autores</li> </ul>"
 
-#, fuzzy
 msgid "Additional Details"
-msgstr "Detalhes da extensão"
+msgstr "Detalhes adicionais"
 
-#, fuzzy
 msgid "Additional Details for {0}"
-msgstr "Detalhes de {0}"
+msgstr "Detalhes adicionais de {0}"
 
 msgid "Tags help users find your add-on and should be short descriptors such as tabs, toolbar, or twitter. You may have a maximum of {0} tags."
 msgstr "As etiquetas ajudam os usuários a encontrar a sua extensão e devem ser descritores curtos como abas, barra de ferramenta, ou twitter. Você pode ter um máximo de {0} etiquetas."
@@ -2891,9 +3014,8 @@ msgid "Describe Add-on"
 msgstr "Descreva a extensão"
 
 #. {0} is the addon name
-#, fuzzy
 msgid "Describe {0}"
-msgstr "Descreva a extensão"
+msgstr "Descreva {0}"
 
 msgid "Add-on URL"
 msgstr "URL da extensão"
@@ -3227,8 +3349,9 @@ msgstr "Excluir esta extensão."
 msgid "Delete"
 msgstr "Excluir"
 
-msgid "Edit information about this add-on."
-msgstr "Editar informações sobre esta extensão."
+#, fuzzy
+msgid "Edit details on this add-on's product page."
+msgstr "Editar as informações de exibição deste tema."
 
 msgid "Upload a new version of this add-on."
 msgstr "Enviar uma versão nova desta extensão."
@@ -3252,11 +3375,9 @@ msgstr "Ver lista de extensões"
 msgid "View Recent Changes"
 msgstr "Ver alterações recentes"
 
-msgid "Edit details about this theme's listing."
+#, fuzzy
+msgid "Edit details on this theme's product page."
 msgstr "Editar as informações de exibição deste tema."
-
-msgid "Edit Listing"
-msgstr "Editar detalhes"
 
 msgid "View the popularity of this theme over time."
 msgstr "Visualizar a popularidade deste tema pelo tempo"
@@ -3314,9 +3435,8 @@ msgstr "Resumo:"
 msgid "required"
 msgstr "obrigatório"
 
-#, fuzzy
 msgid "Description:"
-msgstr "Descrição"
+msgstr "Descrição:"
 
 msgid "This add-on is experimental"
 msgstr "Esta extensão é experimental"
@@ -3440,9 +3560,8 @@ msgstr "Envio de Código Fonte"
 msgid "Do You Need to Submit Source Code?"
 msgstr "Precisa Enviar O Código Fonte?"
 
-#, fuzzy
 msgid "You may need to submit source code. If you don’t, your add-on may be removed from the site!"
-msgstr "Talvez seja necessário que você envie o código fonte. Se você não enviar o código fonte correto agora, sua extensão pode ser removida do site!"
+msgstr "Pode ser que você precise enviar o código fonte. Caso contrário, sua extensão pode ser removida do site!"
 
 #, python-format
 msgid "Please review the <a %(a_attrs)s>source code submission policy</a>."
@@ -3520,9 +3639,8 @@ msgstr "Enviar versão"
 msgid "Use the fields below to upload your add-on package. After upload, a series of automated validation tests will be run on your file."
 msgstr "Use os campos abaixo para fazer o upload do seu pacote de extensão. Após o upload, uma série de testes de validação automatizados serão executados no seu arquivo."
 
-#, fuzzy
 msgid "Which applications is this version compatible with?"
-msgstr "Esse arquivo é compatível com quais plataformas?"
+msgstr "Com que aplicações esta versão é compatível?"
 
 msgid "Administrative overrides"
 msgstr "Substituições administrativas"
@@ -3552,9 +3670,8 @@ msgstr "Nome do tema"
 msgid "Select a header image for your theme"
 msgstr "Selecione uma imagem de cabeçalho para o seu tema"
 
-#, fuzzy
 msgid "Recommended height: 200 pixels"
-msgstr "A altura da imagem deve ser de 200 pixels"
+msgstr "Altura recomendada: 200 pixels"
 
 msgid "6.9MB max"
 msgstr ""
@@ -3871,7 +3988,8 @@ msgstr "Ver recursos para publicadores"
 msgid "Welcome Back"
 msgstr "Bem-vinda(o), {0}"
 
-msgid "Help users discover your extension by creating an appealing listing."
+#, fuzzy
+msgid "Help users discover your extension by creating an appealing product page."
 msgstr "Ajude os usuários a descobrir sua extensão criando uma lista atraente."
 
 msgid "Learn How"
@@ -3966,9 +4084,8 @@ msgstr "Teste de compatibilidade"
 msgid "Check to see if your extension is compatible with Firefox."
 msgstr "Marque para verificar se sua extensão é compatível com o Firefox."
 
-#, fuzzy
 msgid "Live Testing"
-msgstr "Ver listagem"
+msgstr "Teste ao vivo"
 
 msgid "Temporarily install your extension in Firefox for live testing and debugging."
 msgstr ""
@@ -5261,9 +5378,8 @@ msgid "Enjoy music from around the world {start_sub_heading}with {addon_name}{en
 msgstr "Desfrute música de todo o mundo {start_sub_heading}com {addon_name}{end_sub_heading}"
 
 #. editorial content for the discovery pane.
-#, fuzzy
 msgid "Access 30,000+ radio stations from all over the globe."
-msgstr "Acesse cerca de 20,000 estações de rádio de todo os lugares do mundo."
+msgstr "Acesse mais de 30.000 estações de rádio do mundo todo."
 
 #. editorial content for the discovery pane.
 msgid "Listen to videos {start_sub_heading}with {addon_name}{end_sub_heading}"
@@ -5693,6 +5809,9 @@ msgstr "Não foi possível analisar o arquivo carregado, elemento <%s> ausente o
 msgid "Could not parse uploaded file."
 msgstr "Não foi possível interpretar o arquivo enviado."
 
+msgid "Unsupported archive type."
+msgstr ""
+
 #. L10n: {0} is the name of the invalid file.
 msgid "Invalid file name in archive. Please make sure all filenames are utf-8 or latin1 encoded."
 msgstr "Nome do arquivo inválido. Por favor, tenha certeza que todos os nomes de arquivos usam codificação utf-8 ou latin1."
@@ -5937,39 +6056,31 @@ msgstr "Libere seu acesso antecipado a funcionalidades experimentais do navegado
 msgid "Get Started"
 msgstr "Começar"
 
-#, fuzzy
 msgid "Reported Status"
-msgstr "Status do site"
+msgstr "Status relatado"
 
-#, fuzzy
 msgid "Reported Spam"
-msgstr "Tipo de relatório"
+msgstr "Spam relatado"
 
 #. L10n: 'Ham' is the opposite of 'Spam' - i.e. not spam.
-#, fuzzy
 msgid "Reported Ham"
-msgstr "Relatar um bug"
+msgstr "Relatado que não é spam"
 
-#, fuzzy
 msgid "Not Reported"
-msgstr "Ainda sem avaliação"
+msgstr "Não relatado"
 
-#, fuzzy
 msgid "Content Submitted"
-msgstr "Versão submetida"
+msgstr "Conteúdo enviado"
 
-#, fuzzy
 msgid "View Rating on site"
-msgstr "Visite o novo site"
+msgstr "Ver avaliação no site"
 
 #. L10n: 'Ham' is the opposite of 'Spam' - i.e. not spam.
-#, fuzzy
 msgid "Submit Ham to Akismet"
-msgstr "Enviar novo arquivo"
+msgstr "Enviar para Akismet que não é spam"
 
-#, fuzzy
 msgid "Submit Spam to Akismet"
-msgstr "Enviar novo arquivo"
+msgstr "Enviar spam para Akismet"
 
 #. L10n: 'Ham' is the opposite of 'Spam' - i.e. not spam.
 #, python-format
@@ -6852,9 +6963,6 @@ msgstr "Imagens do tema"
 msgid "Rendered Preview"
 msgstr "Pré-visualização renderizada"
 
-msgid "Background file {0} of {1} - {2}"
-msgstr "Arquivo do plano de fundo {0} de {1} - {2}"
-
 msgid "More about this add-on"
 msgstr "Mais sobre esta extensão"
 
@@ -7264,6 +7372,9 @@ msgstr "Guia dos Revisores"
 msgid "Theme Review for {0}"
 msgstr "Análise do tema {0}"
 
+msgid "Edit Listing"
+msgstr "Editar detalhes"
+
 msgid "(Probable Duplicate Submission)"
 msgstr "(Provavelmente uma submissão duplicada)"
 
@@ -7430,7 +7541,8 @@ msgstr "Exibindo resultados {0} a {1} de {2} com <strong>{3}</strong>"
 msgid "Showing {0} - {1} of {2} results"
 msgstr "Exibindo resultados {0} a {1} de {2}"
 
-msgid "Could not find add-on with id \"{}\"."
+#, fuzzy
+msgid "Could not find add-on with guid \"{}\"."
 msgstr "Não foi possível encontrar a extensão com o id \"{}\"."
 
 msgid "You do not own this addon."
@@ -7446,9 +7558,9 @@ msgstr "Não é possível adicionar versões à uma extensão com o estado: %s."
 msgid "Version does not match the manifest file."
 msgstr "A versão não corresponde ao arquivo manifest."
 
-#, fuzzy, python-format
+#, python-format
 msgid "Version already exists. Latest version is: %s."
-msgstr "Versão já existente."
+msgstr "Versão já existente. A versão mais recente é: %s."
 
 msgid "Only WebExtensions are allowed to omit the GUID"
 msgstr "Apenas WebExtensions tem permissão para omitir o GUID"
@@ -7932,9 +8044,8 @@ msgstr "Nenhum usuário com esse e-mail."
 
 #. L10n: {id} will be something like "13ad6a", just a random number
 #. to differentiate this user from other anonymous users.
-#, fuzzy
 msgid "Firefox user {id}"
-msgstr "Firefox para Android"
+msgstr "Usuário {id} do Firefox"
 
 msgid "My Mobile Add-ons"
 msgstr "Minhas extensões móveis"

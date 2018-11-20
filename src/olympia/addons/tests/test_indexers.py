@@ -205,9 +205,17 @@ class TestAddonIndexer(TestCase):
 
     def test_extract_featured_for(self):
         collection = collection_factory()
-        FeaturedCollection.objects.create(collection=collection,
-                                          application=amo.FIREFOX.id)
+        featured_collection = FeaturedCollection.objects.create(
+            collection=collection, application=amo.FIREFOX.id)
         collection.add_addon(self.addon)
+        extracted = self._extract()
+        assert extracted['featured_for'] == [
+            {'application': [amo.FIREFOX.id], 'locales': [None]}]
+
+        # Even if the locale for the FeaturedCollection is an empty string
+        # instead of None, we extract it as None so that it keeps its special
+        # meaning.
+        featured_collection.update(locale='')
         extracted = self._extract()
         assert extracted['featured_for'] == [
             {'application': [amo.FIREFOX.id], 'locales': [None]}]
@@ -357,6 +365,7 @@ class TestAddonIndexer(TestCase):
             'fr': '',  # Empty description should be ignored in extract.
             'it': '<script>alert(42)</script>',
         }
+        self.addon.summary_id = None
         self.addon.name = translations_name
         self.addon.description = translations_description
         self.addon.save()
@@ -372,12 +381,19 @@ class TestAddonIndexer(TestCase):
         ])
         assert extracted['name_l10n_english'] == [translations_name['en-US']]
         assert extracted['name_l10n_spanish'] == [translations_name['es']]
+        assert extracted['name_l10n_italian'] == []
         assert (extracted['description_l10n_english'] ==
                 [translations_description['en-US']])
         assert (extracted['description_l10n_spanish'] ==
                 [translations_description['es']])
+        assert extracted['description_l10n_french'] == []
         assert (extracted['description_l10n_italian'] ==
                 ['&lt;script&gt;alert(42)&lt;/script&gt;'])
+        assert extracted['summary_l10n_english'] == []
+        # The non-l10n fields are fallbacks in the addon's default locale, they
+        # need to always contain a string.
+        assert extracted['name'] == u'Name in ënglish'
+        assert extracted['summary'] == ''
 
     def test_extract_translations_engb_default(self):
         """Make sure we do correctly extract things for en-GB default locale"""

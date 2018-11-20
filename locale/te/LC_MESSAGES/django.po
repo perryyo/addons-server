@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: addons\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-19 12:58+0000\n"
-"PO-Revision-Date: 2018-09-03 16:07+0000\n"
+"POT-Creation-Date: 2018-11-19 12:58+0000\n"
+"PO-Revision-Date: 2018-11-16 12:48+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: none\n"
 "Language: te\n"
@@ -20,6 +20,9 @@ msgstr "లంకెలు అనుమతించబడవు."
 
 msgid "This display name cannot be used."
 msgstr "ఈ పేరును వాడుకోలేరు."
+
+msgid "The homepage field can only be used to link to external websites."
+msgstr ""
 
 msgid "Usernames cannot contain only digits."
 msgstr "వాడుకరి పేరులో కేవలం అంకెలు మాత్రమే ఉండకూడదు."
@@ -492,7 +495,7 @@ msgid "Add-on Review"
 msgstr "పొడిగింత యొక్క సమీక్ష"
 
 msgid "Admin Manage"
-msgstr ""
+msgstr "నిర్వాహక నిర్వహించండం"
 
 #. {0} is an add-on name.
 msgid "Icon of {0}"
@@ -687,7 +690,7 @@ msgid "Admin Tools"
 msgstr "అడ్మిన్ ఉపకరణాలు"
 
 msgid "Positive integer"
-msgstr ""
+msgstr "ధన పూర్ణాంకం"
 
 #, python-format
 msgid "This field can only be used to link to external websites. URLs on %(domain)s are not allowed."
@@ -900,7 +903,7 @@ msgid "Error decoding signature."
 msgstr "సంతకం డీకోడు చేయడంలో పొరపాటు."
 
 msgid "Wrong type for one or more keys in payload"
-msgstr ""
+msgstr "పేలోడ్లో ఒకటి లేదా మరిన్ని కీలు తప్పు రకంలో ఉన్నాయి"
 
 msgid "Invalid JWT Token."
 msgstr "చెల్లని JWT టోకేను."
@@ -1250,7 +1253,7 @@ msgid "Search tools relating to %s"
 msgstr "%sకు సంబంధించిన శోధన ఉపకరణాలు"
 
 msgid "Search tools and search-related extensions"
-msgstr ""
+msgstr "శోధన సాధనాలు మరియు శోధన సంబంధిత పొడిగింతలు"
 
 msgid "Search tools"
 msgstr "శోధన సాధనాలు"
@@ -1292,7 +1295,7 @@ msgstr "విశేష పొడిగింత"
 
 #, python-format
 msgid "Here's a few of our favorite add-ons to help you get started customizing %(app)s."
-msgstr ""
+msgstr "మీరు %(app)s అనుకూలీకరించడం ప్రారంభించడంలో సహాయపడటానికి మా అభిమాన పొడిగింతలలో కొన్ని."
 
 msgid "Install Dictionary"
 msgstr "నిఘంటువును స్థాపించు"
@@ -1357,11 +1360,11 @@ msgid "Learn more about the <a href=\"https://support.mozilla.org/kb/use-search-
 msgstr "{0} లో <a href=\"https://support.mozilla.org/kb/use-search-bar-firefox\">శోధన పట్టీ</a> గురించి మరింత తెలుసుకోండి"
 
 msgid "Browse through even more search providers at <a href=\"http://mycroftproject.com/\">mycroftproject.com</a>"
-msgstr ""
+msgstr "<a href=\"http://mycroftproject.com/\">mycro ftproject.com</a> లో మరిన్ని శోధన ప్రొవైడర్ల ద్వారా విహరించండి"
 
 #, python-format
 msgid "%(amo_mdn_link_open)sMake your own%(amo_mdn_link_close)s search tool"
-msgstr ""
+msgstr "%(amo_mdn_link_open)sమీ సొంత%(amo_mdn_link_close)s శోధన సాధనాన్ని తయారు చేసుకోండి"
 
 msgid "Most Popular Extensions"
 msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
@@ -1413,8 +1416,8 @@ msgstr "రబొయె రొజులొ కొత్త అలంకారా
 #, python-format
 msgid "See the %(cnt)s extension in %(name)s &raquo;"
 msgid_plural "See all %(cnt)s extensions in %(name)s &raquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(name)s &raquo; లలో %(cnt)s పొడిగింతను చూడండి;"
+msgstr[1] "%(name)s &raquo; లలో %(cnt)s పొడిగింతలను చూడండి;"
 
 msgid "{0} Themes"
 msgstr "{0} అలంకారాలు"
@@ -1439,10 +1442,10 @@ msgid "View All Recently Added"
 msgstr "ఇటీవల చేర్చబడినవన్ని చూడండి"
 
 msgid "View All Most Popular"
-msgstr ""
+msgstr "అత్యంత ప్రముకమైనవి చుపించండి"
 
 msgid "View All Top Rated"
-msgstr ""
+msgstr "అన్ని అగ్ర రేటింగ్లను వీక్షించండి"
 
 #, python-format
 msgid "Over 300,000 designs to personalize your browser! Move your mouse over a Background Theme to try it on. <a href=\"%(url)s\" class=\"more-info\">Start exploring</a>"
@@ -1461,7 +1464,7 @@ msgid "Up & Coming Themes"
 msgstr "రాబోయే అలంకారాలు"
 
 msgid "View All Up & Coming"
-msgstr ""
+msgstr "అన్ని రాబోయేవి వీక్షించండి"
 
 msgid "No themes found"
 msgstr "ఏ అలంకారాలు కనుగొనబడలేదు"
@@ -1533,7 +1536,7 @@ msgid "Retained"
 msgstr "ఉంచబడింది"
 
 msgid "{addon} {version} escalated."
-msgstr ""
+msgstr "{addon} {version} ఫిర్యాదు చేయబడింది."
 
 msgid "Super review requested"
 msgstr "ఉత్తమమైన సమీక్ష అభ్యర్థించబడింది"
@@ -1589,7 +1592,7 @@ msgid "{addon} is now featured."
 msgstr "{addon} ఇప్పుడు ఫీచర్ అవ్వుతోంది."
 
 msgid "{addon} is no longer featured."
-msgstr ""
+msgstr "{addon} ఇకపై ఫీచర్ అవ్వదు."
 
 #. L10n: {0} is the application, {1} is the version of the app
 msgid "{0} {1} added."
@@ -1615,7 +1618,7 @@ msgid "{user} approved {rating} for {addon}."
 msgstr "{addon} కోసం {user} {rating}ను ఆమోదించారు."
 
 msgid "Review {rating} for {addon} deleted."
-msgstr ""
+msgstr "తొలగించబడిన {addon} కోసం {rating} సమీక్ష తొలగించబడింది."
 
 msgid "{user} deleted {rating} for {addon}."
 msgstr "{addon} కోసం {user} {rating}ను తొలగించారు."
@@ -1757,22 +1760,22 @@ msgid "{addon} {version} admin add-on-review requested."
 msgstr ""
 
 msgid "Admin add-on-review requested"
-msgstr ""
+msgstr "నిర్వాహక పొడిగింత-సమీక్ష అభ్యర్థించబడింది"
 
 msgid "{addon} {version} admin content-review requested."
 msgstr ""
 
 msgid "Admin content-review requested"
-msgstr ""
+msgstr "నిర్వాహక కంటెంట్-సమీక్ష అభ్యర్థించబడింది"
 
 msgid "{addon} {version} admin theme-review requested."
 msgstr ""
 
 msgid "Admin theme-review requested"
-msgstr ""
+msgstr "నిర్వాహక అలంకారం-సమీక్ష అభ్యర్థించబడింది"
 
 msgid "{addon} was migrated from a lightweight theme."
-msgstr ""
+msgstr "{addon} తేలికపాటి అలంకారం నుండి వలస వచ్చింది."
 
 msgid "Firefox"
 msgstr "Firefox"
@@ -1886,41 +1889,86 @@ msgstr "అనుగుణ్యం కాదు"
 msgid "Alerts & Updates"
 msgstr "హెచ్చరికలు మరియు నవీకరణలు"
 
+msgid "Download Firefox extensions that help you stay up-to-date, track tasks, improve efficiency. Find extensions that reload tabs, manage productivity, and more."
+msgstr ""
+
 msgid "Appearance"
 msgstr "రూపురేఖలు"
+
+msgid "Download extensions that modify the appearance of websites and the browser Firefox. This category includes extensions for dark themes, tab management, and more."
+msgstr ""
 
 msgid "Bookmarks"
 msgstr "ఇష్టాంశములు"
 
+msgid "Download extensions that enhance bookmarks by password-protecting them, searching for duplicates, finding broken bookmarks, and more."
+msgstr ""
+
 msgid "Download Management"
 msgstr "దింపుకోలు నిర్వహణ"
+
+msgid "Download Firefox extensions that can help download web, music and video content. You can also find extensions to manage downloads, share files, and more."
+msgstr ""
 
 msgid "Feeds, News & Blogging"
 msgstr "ఫీడులు, వార్తలు & బ్లాగులు"
 
+msgid "Download Firefox extensions that remove clutter so you can stay up-to-date on social media, catch up on blogs, RSS feeds, reduce eye strain, and more."
+msgstr ""
+
 msgid "Games & Entertainment"
 msgstr "ఆటలు మరియు వినోదం"
+
+msgid "Download Firefox extensions to boost your entertainment experience. This category includes extensions that can enhance gaming, control video playback, and more."
+msgstr ""
 
 msgid "Language Support"
 msgstr "భాషా మద్దతు"
 
+msgid "Download Firefox extensions that offer language support like grammar check, look-up words, translate text, provide text-to-speech, and more."
+msgstr ""
+
 msgid "Photos, Music & Videos"
 msgstr "ఫోటోలు, సంగీతం & వీడియోలు"
+
+msgid "Download Firefox extensions that enhance photo, music and video experiences. Extensions in this category modify audio and video, reverse image search, and more."
+msgstr ""
 
 msgid "Privacy & Security"
 msgstr "అంతరంగికత & భద్రత"
 
+msgid "Download Firefox extensions to browse privately and securely. This category includes extensions to block annoying ads, prevent tracking, manage redirects, and more."
+msgstr ""
+
+msgid "Download Firefox extensions for search and look-up. This category includes extensions that highlight and search text, lookup IP addresses/domains, and more."
+msgstr ""
+
 msgid "Shopping"
 msgstr "కొనుగోలు"
+
+msgid "Download Firefox extensions that can enhance your online shopping experience with coupon finders, deal finders, review analyzers, more."
+msgstr ""
 
 msgid "Social & Communication"
 msgstr "సామాజిక మరియు సమాచారవ్యవస్థ"
 
+msgid "Download Firefox extensions to enhance social media and instant messaging. This category includes improved tab notifications, video downloaders, and more."
+msgstr ""
+
 msgid "Tabs"
 msgstr "ట్యాబులు"
 
+msgid "Download Firefox extension to customize tabs and the new tab page. Discover extensions that can control tabs, change the way you interact with them, and more."
+msgstr ""
+
 msgid "Web Development"
 msgstr "జాల అభివృద్ధి"
+
+msgid "Download Firefox extensions that feature web development tools. This category includes extensions for GitHub, user agent switching, cookie management, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can be unpredictable and creative, yet useful for those odd tasks."
+msgstr ""
 
 msgid "Animals"
 msgstr "జంతువులు"
@@ -1952,35 +2000,80 @@ msgstr "క్రీడలు"
 msgid "Abstract"
 msgstr "సంక్షిప్తము"
 
+msgid "Download Firefox artistic and conceptual themes. This category includes colorful palettes and shapes, fantasy landscapes, playful cats, psychedelic flowers."
+msgstr ""
+
 msgid "Causes"
 msgstr "కారణాలు"
+
+msgid "Download Firefox themes for niche interests and topics. This category includes sports themes, holidays, philanthropic causes, nationalities, and much more."
+msgstr ""
 
 msgid "Fashion"
 msgstr "ఫ్యాషన్"
 
+msgid "Download Firefox themes that celebrate style of all forms—patterns, florals, textures, models, and more."
+msgstr ""
+
 msgid "Film and TV"
 msgstr "సినిమా మరియు టీవీ"
+
+msgid "Download Firefox themes with movies and television. This category includes anime like Uchiha Madara, movies like The Matrix, shows (Game of Thrones), and more."
+msgstr ""
+
+msgid "Download Firefox themes with the Firefox browser theme. This category includes colorful, diverse depictions of the Firefox logo, including more general fox themes."
+msgstr ""
 
 msgid "Foxkeh"
 msgstr "Foxkeh"
 
+msgid "Download Firefox themes with the Japanese Firefox. This category includes themes that depict the cute Foxkeh mascot in various poses on diverse landscapes."
+msgstr ""
+
 msgid "Holiday"
 msgstr "సెలవు"
+
+msgid "Download Firefox themes with holidays. This category includes Christmas, Halloween, Thanksgiving, St. Patrick’s Day, Easter, Fourth of July, and more."
+msgstr ""
 
 msgid "Music"
 msgstr "సంగీతము"
 
+msgid "Download Firefox themes for musical interests and artists. This category includes popular bands like Nirvana and BTS, instruments, music videos, and much more."
+msgstr ""
+
+msgid "Download Firefox themes with animals and natural landscapes. This category includes flowers, sunsets, foxes, seasons, planets, kittens, birds, and more."
+msgstr ""
+
+msgid "Download Firefox themes that are interesting, creative, and unique."
+msgstr ""
+
 msgid "Scenery"
 msgstr "సీనరీ"
+
+msgid "Download Firefox themes that feature the environment and the natural world. This category includes sunsets, beaches, illustrations, city skylines, and more."
+msgstr ""
 
 msgid "Seasonal"
 msgstr "రుతువు"
 
+msgid "Download Firefox themes for all four seasons—fall, winter, spring, and summer. Autumn leaves, snowy mountain peaks, sunny summer days, and spring flowers."
+msgstr ""
+
 msgid "Solid"
 msgstr "ముదురు"
 
+msgid "Download Firefox themes with solid and gradient colors to personalize your browser. This category includes bold reds, pastels, soft greys, and much more."
+msgstr ""
+
+msgid "Download Firefox themes that feature a variety of sports. This category includes country flags, sports teams, soccer, hockey, and more."
+msgstr ""
+
 msgid "Websites"
 msgstr "వెబ్‌సైట్లు"
+
+msgid "Download Firefox themes that capture the essence of the web—captivating, unusual, and distinctive."
+msgstr ""
 
 msgid "General"
 msgstr "సాధారణం"
@@ -2018,29 +2111,62 @@ msgstr "వీడియో"
 msgid "Device Features & Location"
 msgstr "పరికర ఫీచర్లు & స్థానం"
 
+msgid "Download extensions to enhance Firefox for Android. Perform quick searches, free up system resources, take notes, and more."
+msgstr ""
+
 msgid "Experimental"
 msgstr "ప్రయోగాత్మకం"
+
+msgid "Download Firefox extensions that are regularly updated and ready for public testing. Your feedback informs developers on changes to make in upcoming versions."
+msgstr ""
 
 msgid "Feeds, News, & Blogging"
 msgstr "ఫీడ్లు, వార్తలు, మరియు బ్లాగింగ్"
 
+msgid "Download Firefox extensions for news, web feeds, and blogs by removing clutter, utilizing voice readers, and more."
+msgstr ""
+
 msgid "Performance"
 msgstr "పనితనం"
+
+msgid "Download extensions that give Firefox a performance boost. Find extensions that help you be more productive and efficient by blocking annoying ads and more."
+msgstr ""
 
 msgid "Photos & Media"
 msgstr "ఫోటోలు మరియు మీడియా"
 
+msgid "Download Firefox extensions to enhance photos and media. This category includes extensions to reverse search images, capture full page screenshots, and more."
+msgstr ""
+
 msgid "Security & Privacy"
 msgstr "భద్రత & అంతరంగికత"
+
+msgid "Download Firefox extensions to surf safely and privately. Discover extensions that can stop sneaky ad trackers in their tracks, easily clear browsing history, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can enhance your online shopping experience by analyzing reviews, finding deals and coupons, and more."
+msgstr ""
 
 msgid "Social Networking"
 msgstr "సామాజిక నెట్‌వర్కింగ్"
 
+msgid "Download Firefox extensions to enhance your experience on popular social networking websites such as YouTube, GitHub, Reddit, and more."
+msgstr ""
+
 msgid "Sports & Games"
 msgstr "క్రీడలు మరియు ఆటలు"
 
+msgid "Download Firefox extensions to give your entertainment experience a boost with live stream enhancers, sports updates, and more."
+msgstr ""
+
 msgid "User Interface"
 msgstr "వాడుకరి అంతరవర్తి"
+
+msgid "Download user interface Firefox extensions to alter web pages for easier reading, searching, browsing, and more."
+msgstr ""
+
+msgid "Download odd and interesting extensions that can give Firefox for Android a boost."
+msgstr ""
 
 msgid "All Rights Reserved"
 msgstr "అన్ని హక్కులు ప్రత్యేకించబడ్డాయి"
@@ -2088,7 +2214,7 @@ msgid "Android"
 msgstr "Android"
 
 msgid "Static Theme"
-msgstr ""
+msgstr "స్టాటిక్ అలంకరణ"
 
 msgid "Persona"
 msgstr "పెర్సోనా"
@@ -2097,13 +2223,13 @@ msgid "No Reputation"
 msgstr "ప్రఖ్యాతి ఏమీ లేదు"
 
 msgid "Good (1)"
-msgstr ""
+msgstr "మంచిది (1)"
 
 msgid "Very Good (2)"
-msgstr ""
+msgstr "చాలా మంచిది (2)"
 
 msgid "Excellent (3)"
-msgstr ""
+msgstr "అద్భుతం (3)"
 
 msgid "Manual Reviewer Points"
 msgstr "మానవీయ సమీక్షకుల బిందువులు"
@@ -2113,7 +2239,7 @@ msgid "New Legacy Add-on Review"
 msgstr "కొత్త పొడిగింత సమీక్ష"
 
 msgid "Preliminary Add-on Review"
-msgstr ""
+msgstr "ప్రాథమిక పొడగింత సమీక్ష"
 
 #, fuzzy
 msgid "Updated Legacy Add-on Review"
@@ -2141,13 +2267,13 @@ msgid "Theme Review"
 msgstr "అలంకారపు సమీక్ష"
 
 msgid "Theme (Static) Review"
-msgstr ""
+msgstr "అలంకారం (స్థిరమైన) సమీక్ష"
 
 msgid "New Search Provider Review"
 msgstr "క్రొత్త శోధన ప్రదాత సమీక్ష"
 
 msgid "Preliminary Search Provider Review"
-msgstr ""
+msgstr "ప్రాధమిక శోధన ప్రదాత సమీక్ష"
 
 msgid "Updated Search Provider Review"
 msgstr ""
@@ -2304,6 +2430,10 @@ msgstr "దయచేసి మీ పొడిగింత యొక్క గ�
 msgid "Unsupported file type, please upload an archive file {extensions}."
 msgstr ""
 
+#, fuzzy
+msgid "Invalid or broken archive."
+msgstr "చెల్లని JWT టోకేను."
+
 msgid "View current"
 msgstr "ప్రస్తుతంది చూడండి"
 
@@ -2319,9 +2449,8 @@ msgstr "మీ ఎక్కింపుతో ఏదో పొరపాటు �
 msgid "Override failed validation"
 msgstr ""
 
-#, fuzzy
 msgid "Need to select at least one application."
-msgstr "కనీసం ఒక అనుగుణ్య అనువర్తనం కావాలి."
+msgstr "కనీసం ఒక అనువర్తనాన్నైనా ఎంచుకోవాలి."
 
 msgid "Version {version} was uploaded before and deleted."
 msgstr ""
@@ -2372,6 +2501,9 @@ msgid "We allow and encourage an upgrade but you cannot reverse this process. On
 msgstr ""
 
 msgid "You cannot update a WebExtensions add-on with a legacy add-on. Your users would not be able to use your new version because Firefox does not support this type of update."
+msgstr ""
+
+msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
 msgstr ""
 
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
@@ -2576,9 +2708,8 @@ msgstr "పొడగింతల డెవలప్‌మెంట్"
 msgid "Lightweight Themes"
 msgstr "తేలికపాటి అలంకారాలు"
 
-#, fuzzy
 msgid "Developer Policies"
-msgstr "డెవలపర్ వార్తలు"
+msgstr "డెవలపర్ విధానాలు"
 
 msgid "Add-on Validator"
 msgstr "పొడిగింత స్థిరీకరించిన"
@@ -2698,8 +2829,8 @@ msgid_plural "<b>{0}</b> themes"
 msgstr[0] "<b>{0}</b> అలంకారం"
 msgstr[1] "<b>{0}</b> అలంకారాలు"
 
-msgid "Edit Information"
-msgstr "సమాచారాన్ని సవరించండి"
+msgid "Edit Product Page"
+msgstr ""
 
 msgid "None"
 msgstr "ఏదీకాదు"
@@ -2727,13 +2858,11 @@ msgid ""
 "<li><b>Developer:</b> Can manage all aspects of the add-on's listing, except for adding and removing other authors</li> </ul>"
 msgstr ""
 
-#, fuzzy
 msgid "Additional Details"
-msgstr "పొడిగింత వివరాలు"
+msgstr "అదనపు వివరాలు"
 
-#, fuzzy
 msgid "Additional Details for {0}"
-msgstr "పొడిగింత వివరాల కోసం {0}"
+msgstr "{0} కొరకు అదనపు వివరాలు"
 
 msgid "Tags help users find your add-on and should be short descriptors such as tabs, toolbar, or twitter. You may have a maximum of {0} tags."
 msgstr ""
@@ -2775,9 +2904,8 @@ msgid "Describe Add-on"
 msgstr "పొడగింతను వివరించండి"
 
 #. {0} is the addon name
-#, fuzzy
 msgid "Describe {0}"
-msgstr "పొడగింతను వివరించండి"
+msgstr "{0}ను వివరించండి"
 
 msgid "Add-on URL"
 msgstr "పొడిగింత URL"
@@ -3078,8 +3206,9 @@ msgstr "ఈ పొడగింతని తొలగించండి."
 msgid "Delete"
 msgstr "తొలగించు"
 
-msgid "Edit information about this add-on."
-msgstr "ఈ పొడిగింత యొక్క సమాచారాన్ని సవరించండి."
+#, fuzzy
+msgid "Edit details on this add-on's product page."
+msgstr "ఈ అలంకారాని యొక్క జాబితా గురించి వివరాలను సవరించండి."
 
 msgid "Upload a new version of this add-on."
 msgstr ""
@@ -3102,11 +3231,9 @@ msgstr "పొడిగింత యొక్క జాబితాను చూ
 msgid "View Recent Changes"
 msgstr "ఇటీవలి నవీకరణలను దర్శించు"
 
-msgid "Edit details about this theme's listing."
+#, fuzzy
+msgid "Edit details on this theme's product page."
 msgstr "ఈ అలంకారాని యొక్క జాబితా గురించి వివరాలను సవరించండి."
-
-msgid "Edit Listing"
-msgstr "జాబితాను సవరించు"
 
 msgid "View the popularity of this theme over time."
 msgstr "కాలక్రమేణా ఈ అలంకారానికి యొక్క జనాదరణను వీక్షించండి."
@@ -3115,7 +3242,7 @@ msgid "View Statistics"
 msgstr "గణాంకాలు వీక్షించు"
 
 msgid "Change the owner of this theme."
-msgstr ""
+msgstr "ఈ అంలంకారపు యజమానిని మార్చండి."
 
 msgid "Transfer Ownership"
 msgstr "యాజమాన్యాన్ని బదిలీ చేయండి"
@@ -3127,7 +3254,7 @@ msgid "This add-on is missing some required information before it can be submitt
 msgstr ""
 
 msgid "This add-on doesn't have any versions."
-msgstr ""
+msgstr "ఈ పొడగింతకి ఏ వెర్షన్లేమీ లేవు."
 
 msgid "Status:"
 msgstr "స్థితి:"
@@ -3163,9 +3290,8 @@ msgstr "సారాంశం:"
 msgid "required"
 msgstr "కావలసినవి"
 
-#, fuzzy
 msgid "Description:"
-msgstr "వివరణ"
+msgstr "వివరణ:"
 
 msgid "This add-on is experimental"
 msgstr "ఈ పొడగింత ప్రయోగాత్మకం"
@@ -3198,7 +3324,7 @@ msgid "Is there anything our reviewers should bear in mind when reviewing this a
 msgstr ""
 
 msgid "Remember"
-msgstr ""
+msgstr "గుర్తుంచుకో"
 
 #, python-format
 msgid ""
@@ -3295,7 +3421,7 @@ msgid "Please review the <a %(a_attrs)s>source code submission policy</a>."
 msgstr ""
 
 msgid "Do you use any of the following?"
-msgstr ""
+msgstr "వీటిలో మీరు దేనినైనా వాడుతారా?"
 
 msgid "Code minifiers or obfuscators"
 msgstr ""
@@ -3398,7 +3524,7 @@ msgid "Recommended height: 200 pixels"
 msgstr ""
 
 msgid "6.9MB max"
-msgstr ""
+msgstr "6.9MB గరిష్టం"
 
 msgid "PNG, JPG, APNG, SVG or GIF (not animated)"
 msgstr ""
@@ -3694,7 +3820,7 @@ msgstr ""
 msgid "Welcome Back"
 msgstr "పునఃస్వాగతం"
 
-msgid "Help users discover your extension by creating an appealing listing."
+msgid "Help users discover your extension by creating an appealing product page."
 msgstr ""
 
 msgid "Learn How"
@@ -3896,7 +4022,7 @@ msgid ""
 msgstr ""
 
 msgid "Submit Theme"
-msgstr ""
+msgstr "అలంకారాన్ని సమర్పించు"
 
 msgid "You're done!"
 msgstr "మీరు పూర్తి చేసారు!"
@@ -5482,6 +5608,9 @@ msgstr ""
 msgid "Could not parse uploaded file."
 msgstr ""
 
+msgid "Unsupported archive type."
+msgstr ""
+
 #. L10n: {0} is the name of the invalid file.
 msgid "Invalid file name in archive. Please make sure all filenames are utf-8 or latin1 encoded."
 msgstr ""
@@ -6584,9 +6713,6 @@ msgstr "అలంకారపు బొమ్మలు"
 msgid "Rendered Preview"
 msgstr ""
 
-msgid "Background file {0} of {1} - {2}"
-msgstr ""
-
 msgid "More about this add-on"
 msgstr "ఈ పొడగింత గురించి మరింత"
 
@@ -6991,6 +7117,9 @@ msgstr ""
 msgid "Theme Review for {0}"
 msgstr ""
 
+msgid "Edit Listing"
+msgstr "జాబితాను సవరించు"
+
 msgid "(Probable Duplicate Submission)"
 msgstr ""
 
@@ -7148,7 +7277,7 @@ msgstr ""
 msgid "Showing {0} - {1} of {2} results"
 msgstr ""
 
-msgid "Could not find add-on with id \"{}\"."
+msgid "Could not find add-on with guid \"{}\"."
 msgstr ""
 
 msgid "You do not own this addon."

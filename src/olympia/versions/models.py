@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import os
+from base64 import b64encode
 
 import django.dispatch
 
@@ -11,6 +12,7 @@ from django.utils.functional import cached_property
 from django.utils.translation import ugettext
 
 import jinja2
+import waffle
 
 from django_extensions.db.fields.json import JSONField
 from django_statsd.clients import statsd
@@ -22,27 +24,27 @@ from olympia.amo.fields import PositiveAutoField
 from olympia.amo.decorators import use_primary_db
 from olympia.amo.models import (
     BasePreview, ManagerBase, ModelBase, OnChangeMixin)
-from olympia.amo.templatetags.jinja_helpers import (
-    id_to_path, user_media_path, user_media_url)
+from olympia.amo.templatetags.jinja_helpers import id_to_path
 from olympia.amo.urlresolvers import reverse
-from olympia.amo.utils import (
-    sorted_groupby, utc_millesecs_from_epoch, walkfiles)
+from olympia.amo.utils import sorted_groupby, utc_millesecs_from_epoch
 from olympia.applications.models import AppVersion
 from olympia.constants.licenses import LICENSES_BY_BUILTIN
 from olympia.files import utils
 from olympia.files.models import File, cleanup_file
 from olympia.translations.fields import (
     LinkifiedField, PurifiedField, TranslatedField, save_signal)
+from olympia.lib.git import AddonGitRepository
 
 from .compare import version_dict, version_int
 
 
 log = olympia.core.logger.getLogger('z.versions')
 
-VALID_SOURCE_EXTENSIONS = (
-    '.zip', '.tar', '.7z', '.tar.gz', '.tgz', '.tbz', '.txz', '.tar.bz2',
-    '.tar.xz'
-)
+
+# Valid source extensions. Used in error messages to the user and to skip
+# early in source_upload_path() if necessary, but the actual validation is
+# more complex and done in olympia.devhub.WithSourceMixin.clean_source
+VALID_SOURCE_EXTENSIONS = ('.zip', '.tar.gz', '.tar.bz2',)
 
 
 class VersionManager(ManagerBase):
@@ -247,17 +249,18 @@ class Version(OnChangeMixin, ModelBase):
         storage.delete(upload.path)
         version_uploaded.send(sender=version)
 
+        if waffle.switch_is_active('enable-uploads-commit-to-git-storage'):
+            # Extract into git repository
+            AddonGitRepository.extract_and_commit_from_file_obj(
+                file_obj=version.all_files[0],
+                channel=channel,
+                author=upload.user)
+
         # Generate a preview and icon for listed static themes
         if (addon.type == amo.ADDON_STATICTHEME and
                 channel == amo.RELEASE_CHANNEL_LISTED):
-            dst_root = os.path.join(user_media_path('addons'), str(addon.id))
             theme_data = parsed_data.get('theme', {})
-            version_root = os.path.join(dst_root, unicode(version.id))
-
-            utils.extract_header_img(
-                version.all_files[0].file_path, theme_data, version_root)
-            generate_static_theme_preview(
-                theme_data, version_root, version.pk)
+            generate_static_theme_preview(theme_data, version.pk)
 
         # Track the time it took from first upload through validation
         # (and whatever else) until a version was created.
@@ -626,26 +629,22 @@ class Version(OnChangeMixin, ModelBase):
             pass
         return False
 
-    def get_background_image_urls(self):
-        if self.addon.type != amo.ADDON_STATICTHEME:
-            return []
-        background_images_folder = os.path.join(
-            user_media_path('addons'), str(self.addon.id), unicode(self.id))
-        background_images_url = '/'.join(
-            (user_media_url('addons'), str(self.addon.id), unicode(self.id)))
-        out = [
-            background.replace(background_images_folder, background_images_url)
-            for background in walkfiles(background_images_folder)]
-        return out
+    def get_background_images_encoded(self, header_only=False):
+        if not self.has_files:
+            return {}
+        file_obj = self.all_files[0]
+        return {
+            name: b64encode(background)
+            for name, background in utils.get_background_images(
+                file_obj, theme_data=None, header_only=header_only).items()}
 
 
-def generate_static_theme_preview(theme_data, version_root, version_pk):
+def generate_static_theme_preview(theme_data, version_pk):
     """This redirection is so we can mock generate_static_theme_preview, where
     needed, in tests."""
     # To avoid a circular import
     from . import tasks
-    tasks.generate_static_theme_preview.delay(
-        theme_data, version_root, version_pk)
+    tasks.generate_static_theme_preview.delay(theme_data, version_pk)
 
 
 class VersionPreview(BasePreview, ModelBase):

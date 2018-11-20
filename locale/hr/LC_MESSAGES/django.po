@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: addons VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-19 12:58+0000\n"
-"PO-Revision-Date: 2017-09-29 15:46+0000\n"
-"Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
+"POT-Creation-Date: 2018-11-19 12:58+0000\n"
+"PO-Revision-Date: 2017-02-15 17:32+0000\n"
+"Last-Translator: echrs <echrs@outlook.com>\n"
 "Language-Team: Croatian\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -19,22 +19,25 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 msgid "No links are allowed."
-msgstr ""
+msgstr "Poveznice nisu dopuštene."
 
 msgid "This display name cannot be used."
+msgstr "Ovo ime za prikaz ne može se koristiti."
+
+msgid "The homepage field can only be used to link to external websites."
 msgstr ""
 
 msgid "Usernames cannot contain only digits."
-msgstr ""
+msgstr "Korisnička imena ne mogu sadržavati samo brojke."
 
 msgid "Enter a valid username consisting of letters, numbers, underscores or hyphens."
 msgstr ""
 
 msgid "This username cannot be used."
-msgstr ""
+msgstr "Ovo korisničko ime ne može biti korišteno."
 
 msgid "This username is already in use."
-msgstr ""
+msgstr "Ovo korisničko ime je već u upotrebi."
 
 # 87%
 # 100%
@@ -42,7 +45,7 @@ msgid "Images must be either PNG or JPG."
 msgstr "Slike moraju biti ili PNG ili JPG."
 
 msgid "Images cannot be animated."
-msgstr ""
+msgstr "Slike ne smiju biti animirane."
 
 #, python-format
 msgid "Please use images smaller than %dMB."
@@ -75,9 +78,8 @@ msgid "Version {0}"
 msgstr "Inačica {0}"
 
 # 75%
-#, fuzzy
 msgid "Review note"
-msgstr "Recenzent"
+msgstr "Napomena pregleda"
 
 msgid "Only latest versions of addons can have notes added."
 msgstr "Samo najnovije verzije dodataka mogu imati dodane bilješke."
@@ -86,7 +88,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "- Add-on not on AMO -"
-msgstr ""
+msgstr "- Dodatak nije na AMO -"
 
 msgid "Download Now"
 msgstr "Preuzmite sada"
@@ -170,10 +172,10 @@ msgid "Before changing your default locale you must have a name, summary, and de
 msgstr "Prije nego što promijenite zadani jezik trebate imati ime, sažetak i opis na tom jeziku. Nedostaje vam %s."
 
 msgid "A license must be selected."
-msgstr ""
+msgstr "Licenca mora biti odabrana."
 
 msgid "Give Your Theme a Name."
-msgstr ""
+msgstr "Imenujte vašu temu."
 
 msgid "Describe your Theme."
 msgstr "Opišite vašu temu."
@@ -311,11 +313,11 @@ msgstr "od"
 
 #. {0} is a category name, such as Nature
 msgid "More {0} Themes"
-msgstr ""
+msgstr "Više {0} tema"
 
 #. {0} is a category name, such as Nature
 msgid "See all {0} Themes"
-msgstr ""
+msgstr "Pogledajte sve teme kategorije {0}"
 
 msgid "More by this Artist"
 msgstr "Više od ovog umjetnika"
@@ -395,7 +397,7 @@ msgid "Privacy Policy"
 msgstr "Zaštita Privatnosti"
 
 msgid "Report Abuse"
-msgstr ""
+msgstr "Prijava zloupotrebe"
 
 #, python-format
 msgid ""
@@ -487,10 +489,10 @@ msgid "Average"
 msgstr ""
 
 msgid "Write a review"
-msgstr ""
+msgstr "Napišite recenziju"
 
 msgid "Related Categories"
-msgstr ""
+msgstr "Slične kategorije"
 
 msgid "Part of these Collections"
 msgstr ""
@@ -513,7 +515,7 @@ msgid "View statistics"
 msgstr ""
 
 msgid "Manage"
-msgstr ""
+msgstr "Upravljanje"
 
 #, fuzzy
 msgid "Add-on Review"
@@ -525,7 +527,7 @@ msgstr "Stranica administratora"
 
 #. {0} is an add-on name.
 msgid "Icon of {0}"
-msgstr ""
+msgstr "Ikona {0}"
 
 msgid "Contribute"
 msgstr "Donacije"
@@ -564,7 +566,7 @@ msgid "Custom License"
 msgstr "Korisnička licenca"
 
 msgid "About this Add-on"
-msgstr ""
+msgstr "O ovom dodatku"
 
 msgid "Developer’s Comments"
 msgstr ""
@@ -618,7 +620,7 @@ msgid "support email"
 msgstr "Informacije podrške"
 
 msgid "permalink"
-msgstr ""
+msgstr "poveznica"
 
 #, python-format
 msgid "See all user reviews"
@@ -654,7 +656,7 @@ msgid "Add-on Information for {0}"
 msgstr "Informacija dodatka za {0}"
 
 msgid "Edit Theme"
-msgstr ""
+msgstr "Uredi temu"
 
 msgid "Approve / Reject"
 msgstr "Odobri / Odbaci"
@@ -715,9 +717,8 @@ msgid "Manage API Keys"
 msgstr "Upravljanje API ključevima"
 
 # 75%
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Recenzent"
+msgstr "Alati za recenzente"
 
 msgid "Admin Tools"
 msgstr "Administratorski alati"
@@ -779,7 +780,6 @@ msgstr ""
 msgid "Browse all extensions"
 msgstr "Pretraži sve dodatke"
 
-#, fuzzy
 msgid "Browse all themes"
 msgstr "Pretraži sve dodatke"
 
@@ -824,10 +824,10 @@ msgstr "Nema rezultata"
 
 #. abbreviation of 'previous'
 msgid "Prev"
-msgstr ""
+msgstr "Nazad"
 
 msgid "Next"
-msgstr ""
+msgstr "Naprijed"
 
 #, python-format
 msgid "Results <strong>%(begin)s</strong>&ndash;<strong>%(end)s</strong> of <strong>%(count)s</strong>"
@@ -1187,14 +1187,14 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "by {0}"
-msgstr ""
+msgstr "od {0}"
 
 msgid "Edit this Collection"
 msgstr "Uredi ovu zbirku"
 
 #. %s is the name of the collection.
 msgid "Delete {0}"
-msgstr ""
+msgstr "Izbriši {0}"
 
 msgid "Are you sure?"
 msgstr "Jeste li sigurni?"
@@ -1207,7 +1207,7 @@ msgstr "Ne"
 
 #. {0} is the name of the collection.
 msgid "Edit {0}"
-msgstr ""
+msgstr "Uredi {0}"
 
 msgid "Description"
 msgstr "Opis"
@@ -1385,7 +1385,7 @@ msgid "Language Pack"
 msgstr "Jezični paket"
 
 msgid "All locales"
-msgstr ""
+msgstr "Svi jezici"
 
 msgid "List of language packs and dictionaries."
 msgstr "Lista jezičnih paketa i rječnika."
@@ -1988,41 +1988,86 @@ msgstr "Nedovršeno"
 msgid "Alerts & Updates"
 msgstr "Upozorenja i obavijesti"
 
+msgid "Download Firefox extensions that help you stay up-to-date, track tasks, improve efficiency. Find extensions that reload tabs, manage productivity, and more."
+msgstr ""
+
 msgid "Appearance"
 msgstr "Izgled"
+
+msgid "Download extensions that modify the appearance of websites and the browser Firefox. This category includes extensions for dark themes, tab management, and more."
+msgstr ""
 
 msgid "Bookmarks"
 msgstr "Zabilješke"
 
+msgid "Download extensions that enhance bookmarks by password-protecting them, searching for duplicates, finding broken bookmarks, and more."
+msgstr ""
+
 msgid "Download Management"
 msgstr "Upravljanje preuzimanjima"
+
+msgid "Download Firefox extensions that can help download web, music and video content. You can also find extensions to manage downloads, share files, and more."
+msgstr ""
 
 msgid "Feeds, News & Blogging"
 msgstr "Kanali, vijesti i blogovi"
 
+msgid "Download Firefox extensions that remove clutter so you can stay up-to-date on social media, catch up on blogs, RSS feeds, reduce eye strain, and more."
+msgstr ""
+
 msgid "Games & Entertainment"
 msgstr "Igre i zabava"
+
+msgid "Download Firefox extensions to boost your entertainment experience. This category includes extensions that can enhance gaming, control video playback, and more."
+msgstr ""
 
 msgid "Language Support"
 msgstr "Podrška za jezike"
 
+msgid "Download Firefox extensions that offer language support like grammar check, look-up words, translate text, provide text-to-speech, and more."
+msgstr ""
+
 msgid "Photos, Music & Videos"
 msgstr "Fotogracije, glazba i video"
+
+msgid "Download Firefox extensions that enhance photo, music and video experiences. Extensions in this category modify audio and video, reverse image search, and more."
+msgstr ""
 
 msgid "Privacy & Security"
 msgstr "Privatnost i sigurnost"
 
+msgid "Download Firefox extensions to browse privately and securely. This category includes extensions to block annoying ads, prevent tracking, manage redirects, and more."
+msgstr ""
+
+msgid "Download Firefox extensions for search and look-up. This category includes extensions that highlight and search text, lookup IP addresses/domains, and more."
+msgstr ""
+
 msgid "Shopping"
 msgstr "Shopping"
+
+msgid "Download Firefox extensions that can enhance your online shopping experience with coupon finders, deal finders, review analyzers, more."
+msgstr ""
 
 msgid "Social & Communication"
 msgstr "Društveno i komunikacije"
 
+msgid "Download Firefox extensions to enhance social media and instant messaging. This category includes improved tab notifications, video downloaders, and more."
+msgstr ""
+
 msgid "Tabs"
 msgstr "Kartice"
 
+msgid "Download Firefox extension to customize tabs and the new tab page. Discover extensions that can control tabs, change the way you interact with them, and more."
+msgstr ""
+
 msgid "Web Development"
 msgstr "Razvoj weba"
+
+msgid "Download Firefox extensions that feature web development tools. This category includes extensions for GitHub, user agent switching, cookie management, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can be unpredictable and creative, yet useful for those odd tasks."
+msgstr ""
 
 msgid "Animals"
 msgstr "Životinje"
@@ -2054,35 +2099,80 @@ msgstr "Sport"
 msgid "Abstract"
 msgstr "Abstraktno"
 
+msgid "Download Firefox artistic and conceptual themes. This category includes colorful palettes and shapes, fantasy landscapes, playful cats, psychedelic flowers."
+msgstr ""
+
 msgid "Causes"
 msgstr "Povodi"
+
+msgid "Download Firefox themes for niche interests and topics. This category includes sports themes, holidays, philanthropic causes, nationalities, and much more."
+msgstr ""
 
 msgid "Fashion"
 msgstr "Moda"
 
+msgid "Download Firefox themes that celebrate style of all forms—patterns, florals, textures, models, and more."
+msgstr ""
+
 msgid "Film and TV"
 msgstr "Film i TV"
+
+msgid "Download Firefox themes with movies and television. This category includes anime like Uchiha Madara, movies like The Matrix, shows (Game of Thrones), and more."
+msgstr ""
+
+msgid "Download Firefox themes with the Firefox browser theme. This category includes colorful, diverse depictions of the Firefox logo, including more general fox themes."
+msgstr ""
 
 msgid "Foxkeh"
 msgstr "Foxkeh"
 
+msgid "Download Firefox themes with the Japanese Firefox. This category includes themes that depict the cute Foxkeh mascot in various poses on diverse landscapes."
+msgstr ""
+
 msgid "Holiday"
 msgstr "Blagdan"
+
+msgid "Download Firefox themes with holidays. This category includes Christmas, Halloween, Thanksgiving, St. Patrick’s Day, Easter, Fourth of July, and more."
+msgstr ""
 
 msgid "Music"
 msgstr "Glazba"
 
+msgid "Download Firefox themes for musical interests and artists. This category includes popular bands like Nirvana and BTS, instruments, music videos, and much more."
+msgstr ""
+
+msgid "Download Firefox themes with animals and natural landscapes. This category includes flowers, sunsets, foxes, seasons, planets, kittens, birds, and more."
+msgstr ""
+
+msgid "Download Firefox themes that are interesting, creative, and unique."
+msgstr ""
+
 msgid "Scenery"
 msgstr "Pejzaž"
+
+msgid "Download Firefox themes that feature the environment and the natural world. This category includes sunsets, beaches, illustrations, city skylines, and more."
+msgstr ""
 
 msgid "Seasonal"
 msgstr "Sezonske"
 
+msgid "Download Firefox themes for all four seasons—fall, winter, spring, and summer. Autumn leaves, snowy mountain peaks, sunny summer days, and spring flowers."
+msgstr ""
+
 msgid "Solid"
 msgstr "Jednobojne"
 
+msgid "Download Firefox themes with solid and gradient colors to personalize your browser. This category includes bold reds, pastels, soft greys, and much more."
+msgstr ""
+
+msgid "Download Firefox themes that feature a variety of sports. This category includes country flags, sports teams, soccer, hockey, and more."
+msgstr ""
+
 msgid "Websites"
 msgstr "Web stranice"
+
+msgid "Download Firefox themes that capture the essence of the web—captivating, unusual, and distinctive."
+msgstr ""
 
 msgid "General"
 msgstr "Opće"
@@ -2120,29 +2210,62 @@ msgstr "Video"
 msgid "Device Features & Location"
 msgstr "Mogućnosti uređaja i lokacija"
 
+msgid "Download extensions to enhance Firefox for Android. Perform quick searches, free up system resources, take notes, and more."
+msgstr ""
+
 msgid "Experimental"
 msgstr "Eksperimentalno"
+
+msgid "Download Firefox extensions that are regularly updated and ready for public testing. Your feedback informs developers on changes to make in upcoming versions."
+msgstr ""
 
 msgid "Feeds, News, & Blogging"
 msgstr "Kanali, novosti i blogovi"
 
+msgid "Download Firefox extensions for news, web feeds, and blogs by removing clutter, utilizing voice readers, and more."
+msgstr ""
+
 msgid "Performance"
 msgstr "Performanse"
+
+msgid "Download extensions that give Firefox a performance boost. Find extensions that help you be more productive and efficient by blocking annoying ads and more."
+msgstr ""
 
 msgid "Photos & Media"
 msgstr "Slike i multimedija"
 
+msgid "Download Firefox extensions to enhance photos and media. This category includes extensions to reverse search images, capture full page screenshots, and more."
+msgstr ""
+
 msgid "Security & Privacy"
 msgstr "Sigurnost i privatnost"
+
+msgid "Download Firefox extensions to surf safely and privately. Discover extensions that can stop sneaky ad trackers in their tracks, easily clear browsing history, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can enhance your online shopping experience by analyzing reviews, finding deals and coupons, and more."
+msgstr ""
 
 msgid "Social Networking"
 msgstr "Društvene mreže"
 
+msgid "Download Firefox extensions to enhance your experience on popular social networking websites such as YouTube, GitHub, Reddit, and more."
+msgstr ""
+
 msgid "Sports & Games"
 msgstr "Sport i igre"
 
+msgid "Download Firefox extensions to give your entertainment experience a boost with live stream enhancers, sports updates, and more."
+msgstr ""
+
 msgid "User Interface"
 msgstr "Korisničko sučelje"
+
+msgid "Download user interface Firefox extensions to alter web pages for easier reading, searching, browsing, and more."
+msgstr ""
+
+msgid "Download odd and interesting extensions that can give Firefox for Android a boost."
+msgstr ""
 
 msgid "All Rights Reserved"
 msgstr ""
@@ -2415,6 +2538,9 @@ msgstr "Molimo Vas, odredite Policu Privatnosti za vaš dodatak:"
 msgid "Unsupported file type, please upload an archive file {extensions}."
 msgstr ""
 
+msgid "Invalid or broken archive."
+msgstr ""
+
 msgid "View current"
 msgstr ""
 
@@ -2485,6 +2611,9 @@ msgid "We allow and encourage an upgrade but you cannot reverse this process. On
 msgstr ""
 
 msgid "You cannot update a WebExtensions add-on with a legacy add-on. Your users would not be able to use your new version because Firefox does not support this type of update."
+msgstr ""
+
+msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
 msgstr ""
 
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
@@ -2818,9 +2947,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#, fuzzy
-msgid "Edit Information"
-msgstr "Osnovne informacije"
+msgid "Edit Product Page"
+msgstr ""
 
 msgid "None"
 msgstr ""
@@ -3207,9 +3335,8 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#, fuzzy
-msgid "Edit information about this add-on."
-msgstr "Više o ovom dodatku"
+msgid "Edit details on this add-on's product page."
+msgstr ""
 
 msgid "Upload a new version of this add-on."
 msgstr ""
@@ -3232,10 +3359,7 @@ msgstr ""
 msgid "View Recent Changes"
 msgstr ""
 
-msgid "Edit details about this theme's listing."
-msgstr ""
-
-msgid "Edit Listing"
+msgid "Edit details on this theme's product page."
 msgstr ""
 
 msgid "View the popularity of this theme over time."
@@ -3869,7 +3993,7 @@ msgstr ""
 msgid "Welcome Back"
 msgstr ""
 
-msgid "Help users discover your extension by creating an appealing listing."
+msgid "Help users discover your extension by creating an appealing product page."
 msgstr ""
 
 msgid "Learn How"
@@ -5673,6 +5797,9 @@ msgstr ""
 msgid "Could not parse uploaded file."
 msgstr ""
 
+msgid "Unsupported archive type."
+msgstr ""
+
 #. L10n: {0} is the name of the invalid file.
 msgid "Invalid file name in archive. Please make sure all filenames are utf-8 or latin1 encoded."
 msgstr ""
@@ -6832,9 +6959,6 @@ msgstr "Tema"
 msgid "Rendered Preview"
 msgstr "Obrisane revizije"
 
-msgid "Background file {0} of {1} - {2}"
-msgstr ""
-
 msgid "More about this add-on"
 msgstr "Više o ovom dodatku"
 
@@ -7253,6 +7377,9 @@ msgstr ""
 msgid "Theme Review for {0}"
 msgstr ""
 
+msgid "Edit Listing"
+msgstr ""
+
 msgid "(Probable Duplicate Submission)"
 msgstr ""
 
@@ -7419,7 +7546,7 @@ msgstr ""
 msgid "Showing {0} - {1} of {2} results"
 msgstr ""
 
-msgid "Could not find add-on with id \"{}\"."
+msgid "Could not find add-on with guid \"{}\"."
 msgstr ""
 
 msgid "You do not own this addon."

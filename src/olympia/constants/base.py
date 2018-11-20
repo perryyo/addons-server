@@ -263,7 +263,8 @@ PERSONA_IMAGE_SIZES = {
     'icon': [None, (32, 32)],
 }
 
-# Accepted image MIME-types
+# Accepted image extensions and MIME-types
+THEME_BACKGROUND_EXTS = ('.jpg', '.jpeg', '.png', '.apng', '.svg', '.gif')
 IMG_TYPES = ('image/png', 'image/jpeg')
 VIDEO_TYPES = ('video/webm',)
 
@@ -386,7 +387,7 @@ VALIDATOR_SKELETON_EXCEPTION_WEBEXT = {
     "ending_tier": 5,
 }
 
-VERSION_SEARCH = re.compile('\.(\d+)$')
+VERSION_SEARCH = re.compile(r'\.(\d+)$')
 
 # Types of SiteEvent
 SITE_EVENT_OTHER = 1
@@ -414,6 +415,9 @@ DEFAULT_WEBEXT_MIN_VERSION_ANDROID = '48.0'
 
 # The default version of Firefox that supports WebExtensions without an id
 DEFAULT_WEBEXT_MIN_VERSION_NO_ID = '48.0'
+
+# The default version of Firefox that supported `browser_specific_settings`
+DEFAULT_WEBEXT_MIN_VERSION_BROWSER_SPECIFIC = '48.0'
 
 # The version of Firefox that first supported static themes.  Not Android yet.
 DEFAULT_STATIC_THEME_MIN_VERSION_FIREFOX = '53.0'

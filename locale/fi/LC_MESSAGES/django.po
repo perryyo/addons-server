@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REMORA 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-19 12:58+0000\n"
-"PO-Revision-Date: 2018-07-21 17:44+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2018-11-19 12:58+0000\n"
+"PO-Revision-Date: 2018-10-30 20:30+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: Finnish <yllapito@mozilla.fi>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,9 @@ msgstr "Linkit eivät ole sallittuja."
 
 msgid "This display name cannot be used."
 msgstr "Tätä näyttönimeä ei voi käyttää."
+
+msgid "The homepage field can only be used to link to external websites."
+msgstr ""
 
 msgid "Usernames cannot contain only digits."
 msgstr "Käyttäjätunnus ei voi sisältää pelkkiä numeroita."
@@ -203,9 +206,8 @@ msgstr "Näytä tietosuojakäytäntö"
 msgid "View End-User License Agreement"
 msgstr "Näytä loppukäyttäjän lisenssisopimus"
 
-#, fuzzy
 msgid "This add-on has not been reviewed by Mozilla."
-msgstr "Tällä lisäosalla ei ole vielä yhtään käyttäjäarviota."
+msgstr "Mozilla ei ole tarkistanut tätä lisäosaa."
 
 msgid "This add-on has been marked as experimental by its developers."
 msgstr "Tämän lisäosan kehittäjät ovat merkinneet sen kokeelliseksi."
@@ -577,7 +579,7 @@ msgstr ""
 
 #. This is a header of a list of things the add-on can do.
 msgid "This add-on can:"
-msgstr "Tämä lisäosa voi:"
+msgstr "Tämä lisäosa voitehdä seuraavaa:"
 
 msgid "Some add-ons ask for permission to perform certain functions. Since you’re in control of your Firefox, the choice to grant or deny these requests is yours."
 msgstr ""
@@ -1009,9 +1011,8 @@ msgstr "Kuvakkeiden tulee olla PNG- tai JPG-muotoa."
 msgid "Icons cannot be animated."
 msgstr ""
 
-#, fuzzy
 msgid "This custom URL is already in use by another one of your collections."
-msgstr "Tämä osoitemuoto on jo käytössä. Valitse jokin toinen."
+msgstr "Tämä osoitemuoto on jo käytössä jossakin toisessa kokoelmassasi."
 
 msgid "Name cannot be empty."
 msgstr "Nimi ei voi olla tyhjä."
@@ -1231,9 +1232,9 @@ msgstr "Kokoelmia ei löytynyt."
 msgid "Collections are groups of related add-ons that anyone can create and share. Explore collections created by other users or <a href=\"%(url)s\">create your own</a>."
 msgstr "Kokoelmat ovat toisiinsa liittyvien lisäosien ryhmiä, joita kuka tahansa voi luoda ja jakaa. Selaa muiden käyttäjien luomia kokoelmia tai <a href=\"%(url)s\">luo oma</a> kokoelma."
 
-#, fuzzy, python-format
+#, python-format
 msgid "by %(author_link)s"
-msgstr "tekijänä %(users)s"
+msgstr "tekijältä %(author_link)s"
 
 # 89%
 # 100%
@@ -1545,10 +1546,10 @@ msgid "{addon} was created."
 msgstr "{addon} luotiin."
 
 msgid "{addon} properties edited."
-msgstr ""
+msgstr "Lisäosan {addon} ominaisuuksia on muokattu."
 
 msgid "{addon} description edited."
-msgstr ""
+msgstr "Lisäosan {addon} kuvausta on muutettu."
 
 msgid "Categories edited for {addon}."
 msgstr ""
@@ -1988,41 +1989,86 @@ msgstr ""
 msgid "Alerts & Updates"
 msgstr "Ilmoitukset ja päivitykset"
 
+msgid "Download Firefox extensions that help you stay up-to-date, track tasks, improve efficiency. Find extensions that reload tabs, manage productivity, and more."
+msgstr ""
+
 msgid "Appearance"
 msgstr "Käyttöliittymän muokkaus"
+
+msgid "Download extensions that modify the appearance of websites and the browser Firefox. This category includes extensions for dark themes, tab management, and more."
+msgstr ""
 
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
+msgid "Download extensions that enhance bookmarks by password-protecting them, searching for duplicates, finding broken bookmarks, and more."
+msgstr ""
+
 msgid "Download Management"
 msgstr "Latausten hallinta"
+
+msgid "Download Firefox extensions that can help download web, music and video content. You can also find extensions to manage downloads, share files, and more."
+msgstr ""
 
 msgid "Feeds, News & Blogging"
 msgstr "Syötteet, uutiset ja blogit"
 
+msgid "Download Firefox extensions that remove clutter so you can stay up-to-date on social media, catch up on blogs, RSS feeds, reduce eye strain, and more."
+msgstr ""
+
 msgid "Games & Entertainment"
 msgstr "Pelit ja viihde"
+
+msgid "Download Firefox extensions to boost your entertainment experience. This category includes extensions that can enhance gaming, control video playback, and more."
+msgstr ""
 
 msgid "Language Support"
 msgstr "Kielityökalut"
 
+msgid "Download Firefox extensions that offer language support like grammar check, look-up words, translate text, provide text-to-speech, and more."
+msgstr ""
+
 msgid "Photos, Music & Videos"
 msgstr "Kuvat, musiikki ja video"
+
+msgid "Download Firefox extensions that enhance photo, music and video experiences. Extensions in this category modify audio and video, reverse image search, and more."
+msgstr ""
 
 msgid "Privacy & Security"
 msgstr "Tietosuoja ja -turvallisuus"
 
+msgid "Download Firefox extensions to browse privately and securely. This category includes extensions to block annoying ads, prevent tracking, manage redirects, and more."
+msgstr ""
+
+msgid "Download Firefox extensions for search and look-up. This category includes extensions that highlight and search text, lookup IP addresses/domains, and more."
+msgstr ""
+
 msgid "Shopping"
+msgstr ""
+
+msgid "Download Firefox extensions that can enhance your online shopping experience with coupon finders, deal finders, review analyzers, more."
 msgstr ""
 
 msgid "Social & Communication"
 msgstr "Sosiaaliset ja kommunikointi"
 
+msgid "Download Firefox extensions to enhance social media and instant messaging. This category includes improved tab notifications, video downloaders, and more."
+msgstr ""
+
 msgid "Tabs"
 msgstr "Välilehdet"
 
+msgid "Download Firefox extension to customize tabs and the new tab page. Discover extensions that can control tabs, change the way you interact with them, and more."
+msgstr ""
+
 msgid "Web Development"
 msgstr "Websivujen kehitys"
+
+msgid "Download Firefox extensions that feature web development tools. This category includes extensions for GitHub, user agent switching, cookie management, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can be unpredictable and creative, yet useful for those odd tasks."
+msgstr ""
 
 msgid "Animals"
 msgstr "Eläimet"
@@ -2054,37 +2100,82 @@ msgstr "Urheilu"
 msgid "Abstract"
 msgstr "Abstraktit"
 
+msgid "Download Firefox artistic and conceptual themes. This category includes colorful palettes and shapes, fantasy landscapes, playful cats, psychedelic flowers."
+msgstr ""
+
 msgid "Causes"
 msgstr "Aatteet"
+
+msgid "Download Firefox themes for niche interests and topics. This category includes sports themes, holidays, philanthropic causes, nationalities, and much more."
+msgstr ""
 
 msgid "Fashion"
 msgstr "Muoti"
 
+msgid "Download Firefox themes that celebrate style of all forms—patterns, florals, textures, models, and more."
+msgstr ""
+
 msgid "Film and TV"
+msgstr "Elokuva ja TV"
+
+msgid "Download Firefox themes with movies and television. This category includes anime like Uchiha Madara, movies like The Matrix, shows (Game of Thrones), and more."
+msgstr ""
+
+msgid "Download Firefox themes with the Firefox browser theme. This category includes colorful, diverse depictions of the Firefox logo, including more general fox themes."
 msgstr ""
 
 msgid "Foxkeh"
 msgstr ""
 
+msgid "Download Firefox themes with the Japanese Firefox. This category includes themes that depict the cute Foxkeh mascot in various poses on diverse landscapes."
+msgstr ""
+
 msgid "Holiday"
 msgstr "Loma"
+
+msgid "Download Firefox themes with holidays. This category includes Christmas, Halloween, Thanksgiving, St. Patrick’s Day, Easter, Fourth of July, and more."
+msgstr ""
 
 msgid "Music"
 msgstr "Musiikki"
 
+msgid "Download Firefox themes for musical interests and artists. This category includes popular bands like Nirvana and BTS, instruments, music videos, and much more."
+msgstr ""
+
+msgid "Download Firefox themes with animals and natural landscapes. This category includes flowers, sunsets, foxes, seasons, planets, kittens, birds, and more."
+msgstr ""
+
+msgid "Download Firefox themes that are interesting, creative, and unique."
+msgstr ""
+
 msgid "Scenery"
 msgstr "Maisema"
+
+msgid "Download Firefox themes that feature the environment and the natural world. This category includes sunsets, beaches, illustrations, city skylines, and more."
+msgstr ""
 
 # 87%
 # 100%
 msgid "Seasonal"
-msgstr "Vuodenaikaiset"
+msgstr "Vuodenajat"
+
+msgid "Download Firefox themes for all four seasons—fall, winter, spring, and summer. Autumn leaves, snowy mountain peaks, sunny summer days, and spring flowers."
+msgstr ""
 
 msgid "Solid"
 msgstr "Tasaväriset"
 
+msgid "Download Firefox themes with solid and gradient colors to personalize your browser. This category includes bold reds, pastels, soft greys, and much more."
+msgstr ""
+
+msgid "Download Firefox themes that feature a variety of sports. This category includes country flags, sports teams, soccer, hockey, and more."
+msgstr ""
+
 msgid "Websites"
 msgstr "Verkkosivustot"
+
+msgid "Download Firefox themes that capture the essence of the web—captivating, unusual, and distinctive."
+msgstr ""
 
 msgid "General"
 msgstr "Yleiset"
@@ -2124,29 +2215,62 @@ msgstr "Video"
 msgid "Device Features & Location"
 msgstr "Laitteen ominaisuudet ja sijainti"
 
+msgid "Download extensions to enhance Firefox for Android. Perform quick searches, free up system resources, take notes, and more."
+msgstr ""
+
 msgid "Experimental"
 msgstr "Kokeellinen"
+
+msgid "Download Firefox extensions that are regularly updated and ready for public testing. Your feedback informs developers on changes to make in upcoming versions."
+msgstr ""
 
 msgid "Feeds, News, & Blogging"
 msgstr "Syötteet, uutiset ja blogit"
 
+msgid "Download Firefox extensions for news, web feeds, and blogs by removing clutter, utilizing voice readers, and more."
+msgstr ""
+
 msgid "Performance"
 msgstr "Suorituskyky"
+
+msgid "Download extensions that give Firefox a performance boost. Find extensions that help you be more productive and efficient by blocking annoying ads and more."
+msgstr ""
 
 msgid "Photos & Media"
 msgstr "Kuvat ja mediatiedostot"
 
+msgid "Download Firefox extensions to enhance photos and media. This category includes extensions to reverse search images, capture full page screenshots, and more."
+msgstr ""
+
 msgid "Security & Privacy"
 msgstr "Turvallisuus ja yksityisyys"
 
+msgid "Download Firefox extensions to surf safely and privately. Discover extensions that can stop sneaky ad trackers in their tracks, easily clear browsing history, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can enhance your online shopping experience by analyzing reviews, finding deals and coupons, and more."
+msgstr ""
+
 msgid "Social Networking"
+msgstr ""
+
+msgid "Download Firefox extensions to enhance your experience on popular social networking websites such as YouTube, GitHub, Reddit, and more."
 msgstr ""
 
 msgid "Sports & Games"
 msgstr "Urheilu ja pelit"
 
+msgid "Download Firefox extensions to give your entertainment experience a boost with live stream enhancers, sports updates, and more."
+msgstr ""
+
 msgid "User Interface"
 msgstr "Käyttöliittymä"
+
+msgid "Download user interface Firefox extensions to alter web pages for easier reading, searching, browsing, and more."
+msgstr ""
+
+msgid "Download odd and interesting extensions that can give Firefox for Android a boost."
+msgstr ""
 
 msgid "All Rights Reserved"
 msgstr "Kaikki oikeudet pidätetään"
@@ -2421,6 +2545,9 @@ msgstr ""
 msgid "Unsupported file type, please upload an archive file {extensions}."
 msgstr ""
 
+msgid "Invalid or broken archive."
+msgstr ""
+
 msgid "View current"
 msgstr ""
 
@@ -2461,6 +2588,8 @@ msgid ""
 "On this site. <span class=\"helptext\">Your submission will be listed on this site and the Firefox Add-ons Manager for millions of users, after it passes code review. Automatic updates are handled "
 "by this site. This add-on will also be considered for Mozilla promotions and contests. Self-distribution of the reviewed files is also possible.</span>"
 msgstr ""
+"Tällä sivustolla. <span class=\"helptext\">Lisäosasi esitellään koodintarkistuksen jälkeen tällä sivustolla ja Firefoxin Lisäosien hallinnassa miljoonille käyttäjille. Automaattiset päivitykset "
+"käsitellään tällä sivustolla. Lisäosasi huomioidaan myös Mozillan suosituksissa ja kilpailuissa. Myös itse tarjotttu lisäosan jakelu on mahdollista.</span>"
 
 msgid ""
 "On your own. <span class=\"helptext\">Your submission will be immediately signed for self-distribution. Updates should be handled by you via an updateURL or external application updates.</span>"
@@ -2488,6 +2617,9 @@ msgid "We allow and encourage an upgrade but you cannot reverse this process. On
 msgstr ""
 
 msgid "You cannot update a WebExtensions add-on with a legacy add-on. Your users would not be able to use your new version because Firefox does not support this type of update."
+msgstr ""
+
+msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
 msgstr ""
 
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
@@ -2656,7 +2788,7 @@ msgid ""
 msgstr ""
 
 msgid "Firefox Add-on Distribution Agreement"
-msgstr ""
+msgstr "Firefoxin lisäosan jakelusopimus"
 
 # 85%
 #, fuzzy
@@ -2696,11 +2828,10 @@ msgid "Extension Development"
 msgstr ""
 
 msgid "Lightweight Themes"
-msgstr ""
+msgstr "Kevyet teemat"
 
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Kehitysuutiset"
+msgstr "Kehittäjän säännöt"
 
 msgid "Add-on Validator"
 msgstr "Lisäosan kelpuutus"
@@ -2718,7 +2849,7 @@ msgid "Add-ons Forum"
 msgstr "Lisäosien keskustelualue"
 
 msgid "More Resources"
-msgstr ""
+msgstr "Lisää resursseja"
 
 msgid "Search Developer Docs"
 msgstr "Etsi kehitysdokumenteista"
@@ -2808,14 +2939,14 @@ msgid "Close"
 msgstr "Sulje"
 
 msgid "Recent Activity"
-msgstr ""
+msgstr "Viimeisimmät toiminnot"
 
 #, python-format
 msgid "%(ago)s by %(user)s"
 msgstr ""
 
 msgid "Older activity for My Add-ons"
-msgstr ""
+msgstr "Omien lisäosien aikaisemmat toiminnot"
 
 #. {0} is an integer.
 msgid "<b>{0}</b> theme"
@@ -2823,9 +2954,8 @@ msgid_plural "<b>{0}</b> themes"
 msgstr[0] "<b>{0}</b> teema"
 msgstr[1] "<b>{0}</b> teemaa"
 
-#, fuzzy
-msgid "Edit Information"
-msgstr "Tukitiedot"
+msgid "Edit Product Page"
+msgstr ""
 
 # 75%
 msgid "None"
@@ -3218,9 +3348,8 @@ msgstr "Poista tämä lisäosa."
 msgid "Delete"
 msgstr "Poista"
 
-#, fuzzy
-msgid "Edit information about this add-on."
-msgstr "Lisätietoja tästä lisäosasta"
+msgid "Edit details on this add-on's product page."
+msgstr ""
 
 msgid "Upload a new version of this add-on."
 msgstr "Lähetä uusi versio tästä lisäosasta."
@@ -3243,10 +3372,7 @@ msgstr ""
 msgid "View Recent Changes"
 msgstr ""
 
-msgid "Edit details about this theme's listing."
-msgstr ""
-
-msgid "Edit Listing"
+msgid "Edit details on this theme's product page."
 msgstr ""
 
 msgid "View the popularity of this theme over time."
@@ -3507,7 +3633,7 @@ msgid "Upload source code:"
 msgstr "Lähdekoodi"
 
 msgid "Add-on Distribution Agreement"
-msgstr ""
+msgstr "Lisäosan jakelusopimus"
 
 #, fuzzy
 msgid "Upload Add-on"
@@ -3887,16 +4013,15 @@ msgstr ""
 msgid "Welcome Back"
 msgstr "Tervetuloa takaisin"
 
-msgid "Help users discover your extension by creating an appealing listing."
+msgid "Help users discover your extension by creating an appealing product page."
 msgstr ""
 
-#, fuzzy
 msgid "Learn How"
 msgstr "Lue lisää"
 
 #, python-format
 msgid "Want your extension to be featured on %(amo_link_open)saddons.mozilla.org%(amo_link_close)s? Our featured extensions policies will tell you what you need to know."
-msgstr ""
+msgstr "Haluatko, että laajennustasi suositellaan %(amo_link_open)saddons.mozilla.org%(amo_link_close)s -sivustolla? Suositeltujen lisäosien käytäntömme kertovat tätä varten kaiken tarvittavan."
 
 msgid "Learn More"
 msgstr "Lue lisää"
@@ -3908,13 +4033,13 @@ msgstr "Näytä kaikki versiot"
 
 msgid "This is where you view and manage your add-ons and themes. To publish your first add-on, click \"Submit Your First Add-on\" or \"Submit Your First Theme\"."
 msgstr ""
+"Täällä voit tarkastella ja hallinnoida lisäosiasi ja teemojasi. Aloita ensimmäisen lisäosasi julkaiseminen napsauttamalla \"Julkaise ensimmäinen lisäosani\" tai \"Julkaise ensimmäinen teemani\"."
 
-#, fuzzy
 msgid "Submit Your First Add-on"
-msgstr "Lisää lisäosa"
+msgstr "Julkaise ensimmäinen lisäosani"
 
 msgid "Submit Your First Theme"
-msgstr ""
+msgstr "Julkaise ensimmäinen teemani"
 
 # The title for a user if they are a developer
 #, fuzzy
@@ -5699,6 +5824,9 @@ msgstr ""
 msgid "Could not parse uploaded file."
 msgstr ""
 
+msgid "Unsupported archive type."
+msgstr ""
+
 #. L10n: {0} is the name of the invalid file.
 msgid "Invalid file name in archive. Please make sure all filenames are utf-8 or latin1 encoded."
 msgstr ""
@@ -6862,9 +6990,6 @@ msgstr "Teeman nimi"
 msgid "Rendered Preview"
 msgstr "Kirjoita arvio"
 
-msgid "Background file {0} of {1} - {2}"
-msgstr ""
-
 msgid "More about this add-on"
 msgstr "Lisätietoja tästä lisäosasta"
 
@@ -7290,6 +7415,9 @@ msgstr ""
 msgid "Theme Review for {0}"
 msgstr ""
 
+msgid "Edit Listing"
+msgstr ""
+
 msgid "(Probable Duplicate Submission)"
 msgstr ""
 
@@ -7465,7 +7593,7 @@ msgstr "Näytetään tulokset {0} - {1} / {2} haulle <strong>{3}</strong>"
 msgid "Showing {0} - {1} of {2} results"
 msgstr "Näytetään tulokset {0} - {1} / {2}"
 
-msgid "Could not find add-on with id \"{}\"."
+msgid "Could not find add-on with guid \"{}\"."
 msgstr ""
 
 msgid "You do not own this addon."
@@ -8250,7 +8378,7 @@ msgid "Developer Information"
 msgstr "Kehittäjätiedot"
 
 msgid "User since"
-msgstr "Käyttäjä alkaen"
+msgstr "Liittynyt kehittäjäksi"
 
 msgid "Time of last login"
 msgstr "Viimeisimmän kirjautumisen ajankohta"

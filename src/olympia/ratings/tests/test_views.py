@@ -22,6 +22,7 @@ from olympia.amo.templatetags import jinja_helpers
 from olympia.amo.tests import (
     APITestClient, TestCase, addon_factory, reverse_ns, user_factory,
     version_factory)
+from olympia.lib.akismet.models import AkismetReport
 from olympia.ratings.models import Rating, RatingFlag
 from olympia.users.models import UserProfile
 
@@ -616,8 +617,8 @@ class TestCreate(ReviewTest):
         assert self.client.get(self.add_url).status_code == 404
 
     @override_switch('akismet-spam-check', active=True)
-    @mock.patch('olympia.ratings.utils.check_with_akismet.delay')
-    def test_create_calls_akismet(self, check_with_akismet_mock):
+    @mock.patch('olympia.ratings.utils.check_akismet_reports.delay')
+    def test_create_calls_akismet(self, check_akismet_reports_mock):
         response = self.client.post(
             self.add_url, {'body': 'xx', 'rating': 3},
             HTTP_USER_AGENT='. Gecko/20100101 Firefox/62.0',
@@ -625,8 +626,12 @@ class TestCreate(ReviewTest):
         self.assertRedirects(response, self.list_url, status_code=302)
 
         rating = Rating.objects.latest('pk')
-        check_with_akismet_mock.assert_called_with(
-            rating.pk, '. Gecko/20100101 Firefox/62.0', 'https://mozilla.org/')
+        assert AkismetReport.objects.count() == 1
+        report = AkismetReport.objects.get()
+        assert report.rating_instance == rating
+        assert report.user_agent == '. Gecko/20100101 Firefox/62.0'
+        assert report.referrer == 'https://mozilla.org/'
+        check_akismet_reports_mock.assert_called_with([report.id])
 
 
 class TestEdit(ReviewTest):
@@ -732,8 +737,8 @@ class TestEdit(ReviewTest):
         assert len(mail.outbox) == 0
 
     @override_switch('akismet-spam-check', active=True)
-    @mock.patch('olympia.ratings.utils.check_with_akismet.delay')
-    def test_edit_calls_akismet(self, check_with_akismet_mock):
+    @mock.patch('olympia.ratings.utils.check_akismet_reports.delay')
+    def test_edit_calls_akismet(self, check_akismet_reports_mock):
         url = jinja_helpers.url('addons.ratings.edit', self.addon.slug, 218207)
         response = self.client.post(
             url, {'rating': 2, 'body': 'woo woo'},
@@ -742,8 +747,12 @@ class TestEdit(ReviewTest):
             HTTP_REFERER='https://mozilla.org/')
         assert response.status_code == 200
 
-        check_with_akismet_mock.assert_called_with(
-            218207, '. Gecko/20100101 Firefox/62.0', 'https://mozilla.org/')
+        assert AkismetReport.objects.count() == 1
+        report = AkismetReport.objects.get()
+        assert report.rating_instance_id == 218207
+        assert report.user_agent == '. Gecko/20100101 Firefox/62.0'
+        assert report.referrer == 'https://mozilla.org/'
+        check_akismet_reports_mock.assert_called_with([report.id])
 
 
 class TestRatingViewSetGet(TestCase):
@@ -819,6 +828,11 @@ class TestRatingViewSetGet(TestCase):
 
         if 'show_grouped_ratings' not in kwargs:
             assert 'grouped_ratings' not in data
+
+        if 'show_for' not in kwargs:
+            assert 'flags' not in data['results'][0]
+            assert 'flags' not in data['results'][1]
+
         return data
 
     def test_list_show_permission_for_anonymous(self):
@@ -1295,6 +1309,92 @@ class TestRatingViewSetGet(TestCase):
         data = json.loads(response.content)
         assert data['detail'] == 'Need an addon or user parameter'
 
+    def test_list_show_flags_for_anonymous(self):
+        response = self.client.get(
+            self.url, {'addon': self.addon.pk, 'show_flags_for': 666})
+        assert response.status_code == 400
+        assert response.data['detail'] == (
+            'show_flags_for parameter value should be equal to the user '
+            'id of the authenticated user')
+
+    def test_list_show_flags_for_not_int(self):
+        response = self.client.get(
+            self.url, {'addon': self.addon.pk, 'show_flags_for': 'nope'})
+        assert response.status_code == 400
+        assert response.data['detail'] == (
+            'show_flags_for parameter value should be equal to the user '
+            'id of the authenticated user')
+
+    def test_list_show_flags_for_not_right_user(self):
+        self.user = user_factory()
+        self.client.login_api(self.user)
+        response = self.client.get(
+            self.url, {'addon': self.addon.pk,
+                       'show_flags_for': self.user.pk + 42})
+        assert response.status_code == 400
+        assert response.data['detail'] == (
+            'show_flags_for parameter value should be equal to the user '
+            'id of the authenticated user')
+
+    def test_list_rating_flags(self):
+        self.user = user_factory()
+        self.client.login_api(self.user)
+        rating1 = Rating.objects.create(
+            addon=self.addon, body='review 1', user=user_factory(),
+            rating=2)
+        rating0 = Rating.objects.create(
+            addon=self.addon, body='review 0', user=user_factory(),
+            rating=1)
+        reply_to_0 = Rating.objects.create(
+            addon=self.addon, body='reply to review 0', reply_to=rating0,
+            user=user_factory())
+        params = {'addon': self.addon.pk, 'show_flags_for': self.user.pk}
+
+        # First, not flagged
+        response = self.client.get(self.url, params)
+        assert response.status_code == 200
+        data = json.loads(response.content)
+        assert data['results'][0]['flags'] == []
+        assert data['results'][0]['reply']['flags'] == []
+        assert data['results'][1]['flags'] == []
+
+        # then add some RatingFlag - one for a rating, the other a reply
+        RatingFlag.objects.create(
+            rating=rating1, user=self.user, flag=RatingFlag.LANGUAGE)
+        RatingFlag.objects.create(
+            rating=reply_to_0, user=self.user, flag=RatingFlag.OTHER,
+            note=u'foo')
+
+        response = self.client.get(self.url, params)
+        assert response.status_code == 200
+        data = json.loads(response.content)
+        rating0 = data['results'][0]
+        rating1 = data['results'][1]
+        assert 'flags' in rating0
+        assert 'flags' in rating1
+        assert 'flags' in rating0['reply']
+        assert rating0['flags'] == []
+        assert rating0['reply']['flags'] == [
+            {'flag': RatingFlag.OTHER, 'note': 'foo'}]
+        assert rating1['flags'] == [
+            {'flag': RatingFlag.LANGUAGE, 'note': None}]
+
+    def test_list_rating_flags_absent_in_v3(self):
+        self.user = user_factory()
+        self.client.login_api(self.user)
+        rating = Rating.objects.create(
+            addon=self.addon, body='review', user=user_factory(),
+            rating=1)
+        RatingFlag.objects.create(
+            rating=rating, user=self.user, flag=RatingFlag.OTHER,
+            note=u'foo')
+        params = {'addon': self.addon.pk, 'show_flags_for': self.user.pk}
+        response = self.client.get(
+            reverse_ns('rating-list', api_version='v3'), params)
+        assert response.status_code == 200
+        data = json.loads(response.content)
+        assert 'flags' not in data['results'][0]
+
     def test_detail(self):
         review = Rating.objects.create(
             addon=self.addon, body='review 1', user=user_factory())
@@ -1361,6 +1461,83 @@ class TestRatingViewSetGet(TestCase):
         assert data['id'] == review.pk
         assert data['reply']
         assert data['reply']['id'] == reply.pk
+
+    def test_detail_show_flags_for_anonymous(self):
+        rating = Rating.objects.create(
+            addon=self.addon, body='review', user=user_factory())
+        detail_url = reverse_ns(self.detail_url_name, kwargs={'pk': rating.pk})
+        response = self.client.get(detail_url, {'show_flags_for': 666})
+        assert response.status_code == 400
+        assert response.data['detail'] == (
+            'show_flags_for parameter value should be equal to the user '
+            'id of the authenticated user')
+
+    def test_detail_show_flags_for_not_int(self):
+        rating = Rating.objects.create(
+            addon=self.addon, body='review', user=user_factory())
+        detail_url = reverse_ns(self.detail_url_name, kwargs={'pk': rating.pk})
+        response = self.client.get(detail_url, {'show_flags_for': 'nope'})
+        assert response.status_code == 400
+        assert response.data['detail'] == (
+            'show_flags_for parameter value should be equal to the user '
+            'id of the authenticated user')
+
+    def test_detail_show_flags_for_not_right_user(self):
+        self.user = user_factory()
+        self.client.login_api(self.user)
+        rating = Rating.objects.create(
+            addon=self.addon, body='review', user=user_factory())
+        detail_url = reverse_ns(self.detail_url_name, kwargs={'pk': rating.pk})
+        response = self.client.get(
+            detail_url, {'show_flags_for': self.user.pk + 42})
+        assert response.status_code == 400
+        assert response.data['detail'] == (
+            'show_flags_for parameter value should be equal to the user '
+            'id of the authenticated user')
+
+    def test_detail_rating_flags(self):
+        self.user = user_factory()
+        self.client.login_api(self.user)
+        rating = Rating.objects.create(
+            addon=self.addon, body='review 1', user=user_factory(),
+            rating=2)
+
+        detail_url = reverse_ns(self.detail_url_name, kwargs={'pk': rating.pk})
+        params = {'show_flags_for': self.user.pk}
+
+        # First, not flagged
+        response = self.client.get(detail_url, params)
+        assert response.status_code == 200
+        data = json.loads(response.content)
+        assert data['flags'] == []
+
+        # then add some RatingFlag - one for a rating, the other a reply
+        RatingFlag.objects.create(
+            rating=rating, user=self.user, flag=RatingFlag.LANGUAGE)
+
+        response = self.client.get(detail_url, params)
+        assert response.status_code == 200
+        data = json.loads(response.content)
+        assert 'flags' in data
+        assert data['flags'] == [
+            {'flag': RatingFlag.LANGUAGE, 'note': None}]
+
+    def test_detail_rating_flags_absent_in_v3(self):
+        self.user = user_factory()
+        self.client.login_api(self.user)
+        rating = Rating.objects.create(
+            addon=self.addon, body='review', user=user_factory(),
+            rating=1)
+        RatingFlag.objects.create(
+            rating=rating, user=self.user, flag=RatingFlag.OTHER,
+            note=u'foo')
+        detail_url = reverse_ns(
+            self.detail_url_name, kwargs={'pk': rating.pk}, api_version='v3')
+        params = {'show_flags_for': self.user.pk}
+        response = self.client.get(detail_url, params)
+        assert response.status_code == 200
+        data = json.loads(response.content)
+        assert 'flags' not in data
 
     def test_list_by_admin_does_not_show_deleted_by_default(self):
         self.user = user_factory()
@@ -1784,8 +1961,8 @@ class TestRatingViewSetEdit(TestCase):
         assert unicode(self.rating.body) == u'yés!'
 
     @override_switch('akismet-spam-check', active=True)
-    @mock.patch('olympia.ratings.utils.check_with_akismet.delay')
-    def test_edit_calls_akismet(self, check_with_akismet_mock):
+    @mock.patch('olympia.ratings.utils.check_akismet_reports.delay')
+    def test_edit_calls_akismet(self, check_akismet_reports_mock):
         self.client.login_api(self.user)
         response = self.client.patch(
             self.url, {'score': 2, 'body': u'løl!'},
@@ -1795,9 +1972,12 @@ class TestRatingViewSetEdit(TestCase):
         self.rating.reload()
         assert response.data['id'] == self.rating.pk
 
-        check_with_akismet_mock.assert_called_with(
-            self.rating.pk,
-            '. Gecko/20100101 Firefox/62.0', 'https://mozilla.org/')
+        assert AkismetReport.objects.count() == 1
+        report = AkismetReport.objects.get()
+        assert report.rating_instance == self.rating
+        assert report.user_agent == '. Gecko/20100101 Firefox/62.0'
+        assert report.referrer == 'https://mozilla.org/'
+        check_akismet_reports_mock.assert_called_with([report.id])
 
 
 class TestRatingViewSetPost(TestCase):
@@ -2219,8 +2399,8 @@ class TestRatingViewSetPost(TestCase):
             assert response.status_code == 201, response.content
 
     @override_switch('akismet-spam-check', active=True)
-    @mock.patch('olympia.ratings.utils.check_with_akismet.delay')
-    def test_post_rating_calls_akismet(self, check_with_akismet_mock):
+    @mock.patch('olympia.ratings.utils.check_akismet_reports.delay')
+    def test_post_rating_calls_akismet(self, check_akismet_reports_mock):
         self.user = user_factory()
         self.client.login_api(self.user)
         assert not Rating.objects.exists()
@@ -2233,8 +2413,13 @@ class TestRatingViewSetPost(TestCase):
         assert response.status_code == 201
         rating = Rating.objects.latest('pk')
         assert rating.pk == response.data['id']
-        check_with_akismet_mock.assert_called_with(
-            rating.pk, '. Gecko/20100101 Firefox/62.0', 'https://mozilla.org/')
+
+        assert AkismetReport.objects.count() == 1
+        report = AkismetReport.objects.get()
+        assert report.rating_instance == rating
+        assert report.user_agent == '. Gecko/20100101 Firefox/62.0'
+        assert report.referrer == 'https://mozilla.org/'
+        check_akismet_reports_mock.assert_called_with([report.id])
 
 
 class TestRatingViewSetFlag(TestCase):

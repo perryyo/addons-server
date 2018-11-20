@@ -11,7 +11,6 @@ from django.utils.http import urlunquote
 
 import mock
 import pytest
-import waffle
 
 from elasticsearch import Elasticsearch
 from mock import patch
@@ -2291,10 +2290,6 @@ class TestAddonSearchView(ESTestCase):
         )
 
     def perform_search(self, url, data=None, expected_status=200, **headers):
-        # Just to cache the waffle switch, to avoid polluting the
-        # assertNumQueries() call later.
-        waffle.switch_is_active('boost-webextensions-in-search')
-
         with self.assertNumQueries(0):
             response = self.client.get(url, data, **headers)
         assert response.status_code == expected_status, response.content
@@ -3040,10 +3035,6 @@ class TestAddonAutoCompleteSearchView(ESTestCase):
         self.refresh()
 
     def perform_search(self, url, data=None, expected_status=200, **headers):
-        # Just to cache the waffle switch, to avoid polluting the
-        # assertNumQueries() call later.
-        waffle.switch_is_active('boost-webextensions-in-search')
-
         with self.assertNumQueries(0):
             response = self.client.get(url, data, **headers)
         assert response.status_code == expected_status
@@ -3372,7 +3363,11 @@ class TestStaticCategoryView(TestCase):
             u'misc': False,
             u'id': 1,
             u'application': u'firefox',
-            u'description': None,
+            u'description': (
+                u'Download Firefox extensions that remove clutter so you '
+                u'can stay up-to-date on social media, catch up on blogs, '
+                u'RSS feeds, reduce eye strain, and more.'
+            ),
             u'type': u'extension',
             u'slug': u'feeds-news-blogging'
         }

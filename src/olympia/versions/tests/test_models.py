@@ -9,14 +9,15 @@ from django.core.files.storage import default_storage as storage
 
 import mock
 import pytest
+from waffle.testutils import override_switch
 
 from olympia import amo, core
 from olympia.activity.models import ActivityLog
 from olympia.addons.models import (
     Addon, AddonFeatureCompatibility, AddonReviewerFlags, CompatOverride,
     CompatOverrideRange)
-from olympia.amo.templatetags.jinja_helpers import user_media_url
-from olympia.amo.tests import TestCase, addon_factory, version_factory
+from olympia.amo.tests import (
+    TestCase, addon_factory, version_factory, user_factory)
 from olympia.amo.tests.test_models import BasePreviewMixin
 from olympia.amo.utils import utc_millesecs_from_epoch
 from olympia.applications.models import AppVersion
@@ -29,6 +30,7 @@ from olympia.users.models import UserProfile
 from olympia.versions.compare import version_int
 from olympia.versions.models import (
     ApplicationsVersions, source_upload_path, Version, VersionPreview)
+from olympia.lib.git import AddonGitRepository
 
 
 pytestmark = pytest.mark.django_db
@@ -869,6 +871,36 @@ class TestExtensionVersionFromUpload(TestVersionFromUpload):
             amo.RELEASE_CHANNEL_LISTED, parsed_data=self.dummy_parsed_data)
         assert upload_version.nomination == pending_version.nomination
 
+    @override_switch('enable-uploads-commit-to-git-storage', active=False)
+    def test_doesnt_commit_to_git_by_default(self):
+        addon = addon_factory()
+        upload = self.get_upload('webextension_no_id.xpi')
+        user = user_factory(username='fancyuser')
+        parsed_data = parse_addon(upload, addon, user=user)
+        version = Version.from_upload(
+            upload, addon, [self.selected_app],
+            amo.RELEASE_CHANNEL_LISTED,
+            parsed_data=parsed_data)
+        assert version.pk
+
+        repo = AddonGitRepository(addon.pk)
+        assert not os.path.exists(repo.git_repository_path)
+
+    @override_switch('enable-uploads-commit-to-git-storage', active=True)
+    def test_commits_to_git_waffle_enabled(self):
+        addon = addon_factory()
+        upload = self.get_upload('webextension_no_id.xpi')
+        user = user_factory(username='fancyuser')
+        parsed_data = parse_addon(upload, addon, user=user)
+        version = Version.from_upload(
+            upload, addon, [self.selected_app],
+            amo.RELEASE_CHANNEL_LISTED,
+            parsed_data=parsed_data)
+        assert version.pk
+
+        repo = AddonGitRepository(addon.pk)
+        assert os.path.exists(repo.git_repository_path)
+
 
 class TestSearchVersionFromUpload(TestVersionFromUpload):
     filename = 'search.xml'
@@ -948,10 +980,6 @@ class TestStaticThemeFromUpload(UploadTest):
             parsed_data=parsed_data)
         assert len(version.all_files) == 1
         assert generate_static_theme_preview_mock.call_count == 1
-        assert version.get_background_image_urls() == [
-            '%s/%s/%s/%s' % (user_media_url('addons'), str(self.addon.id),
-                             unicode(version.id), 'weta.png')
-        ]
 
     @mock.patch('olympia.versions.models.generate_static_theme_preview')
     def test_new_version_while_public(
@@ -963,10 +991,6 @@ class TestStaticThemeFromUpload(UploadTest):
             parsed_data=parsed_data)
         assert len(version.all_files) == 1
         assert generate_static_theme_preview_mock.call_count == 1
-        assert version.get_background_image_urls() == [
-            '%s/%s/%s/%s' % (user_media_url('addons'), str(self.addon.id),
-                             unicode(version.id), 'weta.png')
-        ]
 
     @mock.patch('olympia.versions.models.generate_static_theme_preview')
     def test_new_version_with_additional_backgrounds(
@@ -981,14 +1005,6 @@ class TestStaticThemeFromUpload(UploadTest):
             parsed_data=parsed_data)
         assert len(version.all_files) == 1
         assert generate_static_theme_preview_mock.call_count == 1
-        image_url_folder = u'%s/%s/%s/' % (
-            user_media_url('addons'), self.addon.id, version.id)
-
-        assert sorted(version.get_background_image_urls()) == [
-            image_url_folder + 'empty.png',
-            image_url_folder + 'transparent.gif',
-            image_url_folder + 'weta_for_tiling.png',
-        ]
 
 
 class TestApplicationsVersions(TestCase):

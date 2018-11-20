@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-19 12:58+0000\n"
-"PO-Revision-Date: 2018-10-17 12:04+0000\n"
-"Last-Translator: Дмитро <tenevyk@gmail.com>\n"
+"POT-Creation-Date: 2018-11-19 12:58+0000\n"
+"PO-Revision-Date: 2018-10-30 11:12+0000\n"
+"Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,10 @@ msgstr "Посилання не дозволені."
 
 msgid "This display name cannot be used."
 msgstr "Це ім'я для показу не можна використати."
+
+#, fuzzy
+msgid "The homepage field can only be used to link to external websites."
+msgstr "Це поле можна використовувати лише для посилання на зовнішні веб-сайти. URL-адреси на %(domain)s не дозволяються."
 
 msgid "Usernames cannot contain only digits."
 msgstr "Імена користувачів не можуть містити лише цифри."
@@ -720,7 +724,7 @@ msgstr "Позитивне ціле число"
 
 #, python-format
 msgid "This field can only be used to link to external websites. URLs on %(domain)s are not allowed."
-msgstr ""
+msgstr "Це поле можна використовувати лише для посилання на зовнішні веб-сайти. URL-адреси на %(domain)s не дозволяються."
 
 msgid "Incorrect, please try again."
 msgstr "Неправильно, спробуйте знову."
@@ -1943,41 +1947,86 @@ msgstr "Несумісно"
 msgid "Alerts & Updates"
 msgstr "Дані сторінок, повідомлення та віджети"
 
+msgid "Download Firefox extensions that help you stay up-to-date, track tasks, improve efficiency. Find extensions that reload tabs, manage productivity, and more."
+msgstr ""
+
 msgid "Appearance"
 msgstr "Налаштування інтерфейсу"
+
+msgid "Download extensions that modify the appearance of websites and the browser Firefox. This category includes extensions for dark themes, tab management, and more."
+msgstr ""
 
 msgid "Bookmarks"
 msgstr "Закладки"
 
+msgid "Download extensions that enhance bookmarks by password-protecting them, searching for duplicates, finding broken bookmarks, and more."
+msgstr ""
+
 msgid "Download Management"
 msgstr "Завантаження та керування файлами"
+
+msgid "Download Firefox extensions that can help download web, music and video content. You can also find extensions to manage downloads, share files, and more."
+msgstr ""
 
 msgid "Feeds, News & Blogging"
 msgstr "RSS, новини та блоги"
 
+msgid "Download Firefox extensions that remove clutter so you can stay up-to-date on social media, catch up on blogs, RSS feeds, reduce eye strain, and more."
+msgstr ""
+
 msgid "Games & Entertainment"
 msgstr "Ігри та розваги"
+
+msgid "Download Firefox extensions to boost your entertainment experience. This category includes extensions that can enhance gaming, control video playback, and more."
+msgstr ""
 
 msgid "Language Support"
 msgstr "Підтримка мов та перекладів"
 
+msgid "Download Firefox extensions that offer language support like grammar check, look-up words, translate text, provide text-to-speech, and more."
+msgstr ""
+
 msgid "Photos, Music & Videos"
 msgstr "Фото та мультимедіа"
+
+msgid "Download Firefox extensions that enhance photo, music and video experiences. Extensions in this category modify audio and video, reverse image search, and more."
+msgstr ""
 
 msgid "Privacy & Security"
 msgstr "Конфіденційність та безпека"
 
+msgid "Download Firefox extensions to browse privately and securely. This category includes extensions to block annoying ads, prevent tracking, manage redirects, and more."
+msgstr ""
+
+msgid "Download Firefox extensions for search and look-up. This category includes extensions that highlight and search text, lookup IP addresses/domains, and more."
+msgstr ""
+
 msgid "Shopping"
 msgstr "Покупки"
+
+msgid "Download Firefox extensions that can enhance your online shopping experience with coupon finders, deal finders, review analyzers, more."
+msgstr ""
 
 msgid "Social & Communication"
 msgstr "Соціальні"
 
+msgid "Download Firefox extensions to enhance social media and instant messaging. This category includes improved tab notifications, video downloaders, and more."
+msgstr ""
+
 msgid "Tabs"
 msgstr "Вкладки"
 
+msgid "Download Firefox extension to customize tabs and the new tab page. Discover extensions that can control tabs, change the way you interact with them, and more."
+msgstr ""
+
 msgid "Web Development"
 msgstr "Інструменти розробника"
+
+msgid "Download Firefox extensions that feature web development tools. This category includes extensions for GitHub, user agent switching, cookie management, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can be unpredictable and creative, yet useful for those odd tasks."
+msgstr ""
 
 msgid "Animals"
 msgstr "Тварини"
@@ -2009,35 +2058,80 @@ msgstr "Спорт"
 msgid "Abstract"
 msgstr "Абстрактні"
 
+msgid "Download Firefox artistic and conceptual themes. This category includes colorful palettes and shapes, fantasy landscapes, playful cats, psychedelic flowers."
+msgstr ""
+
 msgid "Causes"
 msgstr "Активізм"
+
+msgid "Download Firefox themes for niche interests and topics. This category includes sports themes, holidays, philanthropic causes, nationalities, and much more."
+msgstr ""
 
 msgid "Fashion"
 msgstr "Мода"
 
+msgid "Download Firefox themes that celebrate style of all forms—patterns, florals, textures, models, and more."
+msgstr ""
+
 msgid "Film and TV"
 msgstr "Фільми й телебачення"
+
+msgid "Download Firefox themes with movies and television. This category includes anime like Uchiha Madara, movies like The Matrix, shows (Game of Thrones), and more."
+msgstr ""
+
+msgid "Download Firefox themes with the Firefox browser theme. This category includes colorful, diverse depictions of the Firefox logo, including more general fox themes."
+msgstr ""
 
 msgid "Foxkeh"
 msgstr "Foxkeh"
 
+msgid "Download Firefox themes with the Japanese Firefox. This category includes themes that depict the cute Foxkeh mascot in various poses on diverse landscapes."
+msgstr ""
+
 msgid "Holiday"
 msgstr "Святкові"
+
+msgid "Download Firefox themes with holidays. This category includes Christmas, Halloween, Thanksgiving, St. Patrick’s Day, Easter, Fourth of July, and more."
+msgstr ""
 
 msgid "Music"
 msgstr "Музичні"
 
+msgid "Download Firefox themes for musical interests and artists. This category includes popular bands like Nirvana and BTS, instruments, music videos, and much more."
+msgstr ""
+
+msgid "Download Firefox themes with animals and natural landscapes. This category includes flowers, sunsets, foxes, seasons, planets, kittens, birds, and more."
+msgstr ""
+
+msgid "Download Firefox themes that are interesting, creative, and unique."
+msgstr ""
+
 msgid "Scenery"
 msgstr "Пейзажі"
+
+msgid "Download Firefox themes that feature the environment and the natural world. This category includes sunsets, beaches, illustrations, city skylines, and more."
+msgstr ""
 
 msgid "Seasonal"
 msgstr "Пори року"
 
+msgid "Download Firefox themes for all four seasons—fall, winter, spring, and summer. Autumn leaves, snowy mountain peaks, sunny summer days, and spring flowers."
+msgstr ""
+
 msgid "Solid"
 msgstr "Суцільні"
 
+msgid "Download Firefox themes with solid and gradient colors to personalize your browser. This category includes bold reds, pastels, soft greys, and much more."
+msgstr ""
+
+msgid "Download Firefox themes that feature a variety of sports. This category includes country flags, sports teams, soccer, hockey, and more."
+msgstr ""
+
 msgid "Websites"
 msgstr "Веб-сайти"
+
+msgid "Download Firefox themes that capture the essence of the web—captivating, unusual, and distinctive."
+msgstr ""
 
 msgid "General"
 msgstr "Загальне"
@@ -2075,29 +2169,62 @@ msgstr "Відео"
 msgid "Device Features & Location"
 msgstr "Функції пристрою і розташування"
 
+msgid "Download extensions to enhance Firefox for Android. Perform quick searches, free up system resources, take notes, and more."
+msgstr ""
+
 msgid "Experimental"
 msgstr "Експериментальні"
+
+msgid "Download Firefox extensions that are regularly updated and ready for public testing. Your feedback informs developers on changes to make in upcoming versions."
+msgstr ""
 
 msgid "Feeds, News, & Blogging"
 msgstr "Стрічки, новини та блоги"
 
+msgid "Download Firefox extensions for news, web feeds, and blogs by removing clutter, utilizing voice readers, and more."
+msgstr ""
+
 msgid "Performance"
 msgstr "Швидкодія"
+
+msgid "Download extensions that give Firefox a performance boost. Find extensions that help you be more productive and efficient by blocking annoying ads and more."
+msgstr ""
 
 msgid "Photos & Media"
 msgstr "Фото і медіа"
 
+msgid "Download Firefox extensions to enhance photos and media. This category includes extensions to reverse search images, capture full page screenshots, and more."
+msgstr ""
+
 msgid "Security & Privacy"
 msgstr "Безпека і приватність"
+
+msgid "Download Firefox extensions to surf safely and privately. Discover extensions that can stop sneaky ad trackers in their tracks, easily clear browsing history, and more."
+msgstr ""
+
+msgid "Download Firefox extensions that can enhance your online shopping experience by analyzing reviews, finding deals and coupons, and more."
+msgstr ""
 
 msgid "Social Networking"
 msgstr "Соціальні мережі"
 
+msgid "Download Firefox extensions to enhance your experience on popular social networking websites such as YouTube, GitHub, Reddit, and more."
+msgstr ""
+
 msgid "Sports & Games"
 msgstr "Спорт та ігри"
 
+msgid "Download Firefox extensions to give your entertainment experience a boost with live stream enhancers, sports updates, and more."
+msgstr ""
+
 msgid "User Interface"
 msgstr "Інтерфейс користувача"
+
+msgid "Download user interface Firefox extensions to alter web pages for easier reading, searching, browsing, and more."
+msgstr ""
+
+msgid "Download odd and interesting extensions that can give Firefox for Android a boost."
+msgstr ""
 
 msgid "All Rights Reserved"
 msgstr "Всі права захищені"
@@ -2355,6 +2482,10 @@ msgstr "Вкажіть політику приватності вашого до
 msgid "Unsupported file type, please upload an archive file {extensions}."
 msgstr "Непідтримуваний тип файлу, вивантажте будь ласка файл архіву (розширення)."
 
+#, fuzzy
+msgid "Invalid or broken archive."
+msgstr "Некоректний архів."
+
 msgid "View current"
 msgstr "Переглянути поточний"
 
@@ -2428,6 +2559,10 @@ msgstr "Ми дозволяємо і заохочуємо оновлення, а
 
 msgid "You cannot update a WebExtensions add-on with a legacy add-on. Your users would not be able to use your new version because Firefox does not support this type of update."
 msgstr "Ви не можете оновити додаток WebExtensions на застарілий додаток. Ваші користувачі не зможуть використовувати нову версію, тому що Firefox не підтримує цей тип оновлення."
+
+#, fuzzy
+msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
+msgstr "Введений текст було позначено як спам."
 
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
 msgstr "Ваш API-ключ розробника було знайдено у відправленому файлі. Для захисту вашого облікового запису ключ буде відкликано."
@@ -2633,9 +2768,8 @@ msgstr "Розробка розширення"
 msgid "Lightweight Themes"
 msgstr "Легкі теми"
 
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Новини розробників"
+msgstr "Політики розробників"
 
 msgid "Add-on Validator"
 msgstr "Валідатор додатків"
@@ -2760,8 +2894,8 @@ msgstr[0] "<b>{0}</b> тема"
 msgstr[1] "<b>{0}</b> теми"
 msgstr[2] "<b>{0}</b> тем"
 
-msgid "Edit Information"
-msgstr "Змінити інформацію"
+msgid "Edit Product Page"
+msgstr ""
 
 msgid "None"
 msgstr "Жодного"
@@ -2791,13 +2925,11 @@ msgstr ""
 "<p>Додатки можуть мати будь-яку кількість авторів з 2 можливими ролями:</p> <ul> <li><b>Власник:</b> Може керувати всіма аспектами розміщення додатка, включаючи додавання і вилучення інших авторів</"
 "li> <li><b>Розробник:</b> Може керувати всіма аспектами розміщення додатка, за винятком додавання і вилучення інших авторів</li> </ul>"
 
-#, fuzzy
 msgid "Additional Details"
-msgstr "Інформація про додаток"
+msgstr "Додаткові подробиці"
 
-#, fuzzy
 msgid "Additional Details for {0}"
-msgstr "Інформація про додаток для {0}"
+msgstr "Додаткові подробиці для {0}"
 
 msgid "Tags help users find your add-on and should be short descriptors such as tabs, toolbar, or twitter. You may have a maximum of {0} tags."
 msgstr "Мітки допомагають користувачам знайти ваш додаток і вони повинні бути короткими, наприклад, вкладки, панель, інструменти, або twitter. Ви можете вказати максимум {0} міток."
@@ -2843,9 +2975,8 @@ msgid "Describe Add-on"
 msgstr "Опишіть додаток"
 
 #. {0} is the addon name
-#, fuzzy
 msgid "Describe {0}"
-msgstr "Опишіть додаток"
+msgstr "Опишіть {0}"
 
 msgid "Add-on URL"
 msgstr "URL додатка"
@@ -3173,8 +3304,9 @@ msgstr "Вилучити цей додаток."
 msgid "Delete"
 msgstr "Вилучити"
 
-msgid "Edit information about this add-on."
-msgstr "Змінити інформацію про цей додаток."
+#, fuzzy
+msgid "Edit details on this add-on's product page."
+msgstr "Редагувати інформацію про сторінку цієї теми."
 
 msgid "Upload a new version of this add-on."
 msgstr "Вивантажити нову версію цього додатка."
@@ -3197,11 +3329,9 @@ msgstr "Показати сторінку додатка"
 msgid "View Recent Changes"
 msgstr "Переглянути нещодавні зміни"
 
-msgid "Edit details about this theme's listing."
+#, fuzzy
+msgid "Edit details on this theme's product page."
 msgstr "Редагувати інформацію про сторінку цієї теми."
-
-msgid "Edit Listing"
-msgstr "Редагувати"
 
 msgid "View the popularity of this theme over time."
 msgstr "Переглянути популярність цієї теми протягом часу."
@@ -3259,9 +3389,8 @@ msgstr "Стисло:"
 msgid "required"
 msgstr "потрібно"
 
-#, fuzzy
 msgid "Description:"
-msgstr "Опис"
+msgstr "Опис:"
 
 msgid "This add-on is experimental"
 msgstr "Цей додаток є експериментальним"
@@ -3489,7 +3618,7 @@ msgid "Theme generator"
 msgstr "Генератор теми"
 
 msgid "Warning: the following manifest properties that your most recent version upload used in it's manifest are unsupported in this wizard and will be ignored:"
-msgstr ""
+msgstr "Попередження: Наступні властивості маніфесту, які використовуються в найновішій вивантаженій вами версії маніфесту не підтримуються в цьому майстрі та будуть ігноруватися:"
 
 msgid "Theme name"
 msgstr "Назва теми"
@@ -3810,7 +3939,8 @@ msgstr "Перегляд ресурсів для тих, хто розміщує
 msgid "Welcome Back"
 msgstr "З поверненням"
 
-msgid "Help users discover your extension by creating an appealing listing."
+#, fuzzy
+msgid "Help users discover your extension by creating an appealing product page."
 msgstr "Допоможіть користувачам дізнатися про ваше розширення, створивши гарний опис."
 
 msgid "Learn How"
@@ -5607,6 +5737,9 @@ msgstr "Не вдалося розібрати завантажений файл
 msgid "Could not parse uploaded file."
 msgstr "Не вдалося розібрати завантажений файл."
 
+msgid "Unsupported archive type."
+msgstr ""
+
 #. L10n: {0} is the name of the invalid file.
 msgid "Invalid file name in archive. Please make sure all filenames are utf-8 or latin1 encoded."
 msgstr "Неправильна назва файлу в архіві. Переконайтеся, що всі назви файлів мають кодування utf-8 або latin1."
@@ -6741,9 +6874,6 @@ msgstr "Зображення теми"
 msgid "Rendered Preview"
 msgstr "Відображений перегляд"
 
-msgid "Background file {0} of {1} - {2}"
-msgstr "Файл зображення тла {0} із {1} - {2}"
-
 msgid "More about this add-on"
 msgstr "Докладніше про цей додаток"
 
@@ -7148,6 +7278,9 @@ msgstr "Інструкція редактора"
 msgid "Theme Review for {0}"
 msgstr "Перегляд теми для {0}"
 
+msgid "Edit Listing"
+msgstr "Редагувати"
+
 msgid "(Probable Duplicate Submission)"
 msgstr "(Можливо повторюване представлення)"
 
@@ -7310,7 +7443,8 @@ msgstr "Показ результатів {0} - {1} з {2} для <strong>{3}</s
 msgid "Showing {0} - {1} of {2} results"
 msgstr "Показ результатів {0} - {1} з {2}"
 
-msgid "Could not find add-on with id \"{}\"."
+#, fuzzy
+msgid "Could not find add-on with guid \"{}\"."
 msgstr "Не вдалося знайти додаток з ID \"{}\"."
 
 msgid "You do not own this addon."

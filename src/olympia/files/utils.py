@@ -15,8 +15,8 @@ import scandir
 
 from cStringIO import StringIO as cStringIO
 from datetime import datetime, timedelta
+from six import text_type
 from xml.dom import minidom
-from zipfile import ZipFile
 
 from django import forms
 from django.conf import settings
@@ -54,8 +54,8 @@ class ParseError(forms.ValidationError):
     pass
 
 
-VERSION_RE = re.compile('^[-+*.\w]{,32}$')
-SIGNED_RE = re.compile('^META\-INF/(\w+)\.(rsa|sf)$')
+VERSION_RE = re.compile(r'^[-+*.\w]{,32}$')
+SIGNED_RE = re.compile(r'^META\-INF/(\w+)\.(rsa|sf)$')
 
 # This is essentially what Firefox matches
 # (see toolkit/components/extensions/ExtensionUtils.jsm)
@@ -106,13 +106,13 @@ def get_file(fileorpath):
 
 
 def make_xpi(files):
-    f = cStringIO()
-    z = ZipFile(f, 'w')
+    file_obj = cStringIO()
+    zip_file = zipfile.ZipFile(file_obj, 'w')
     for path, data in files.items():
-        z.writestr(path, data)
-    z.close()
-    f.seek(0)
-    return f
+        zip_file.writestr(path, data)
+    zip_file.close()
+    file_obj.seek(0)
+    return file_obj
 
 
 class Extractor(object):
@@ -387,8 +387,11 @@ class ManifestJSONExtractor(object):
 
     @property
     def gecko(self):
-        """Return the "applications["gecko"]" part of the manifest."""
-        return self.get('applications', {}).get('gecko', {})
+        """Return the "applications|browser_specific_settings["gecko"]" part
+        of the manifest."""
+        parent_block = self.get(
+            'browser_specific_settings', self.get('applications', {}))
+        return parent_block.get('gecko', {})
 
     @property
     def guid(self):
@@ -433,8 +436,12 @@ class ManifestJSONExtractor(object):
                 (amo.FIREFOX, amo.DEFAULT_WEBEXT_DICT_MIN_VERSION_FIREFOX),
             )
         else:
+            webext_min = (
+                amo.DEFAULT_WEBEXT_MIN_VERSION
+                if self.get('browser_specific_settings', None) is None
+                else amo.DEFAULT_WEBEXT_MIN_VERSION_BROWSER_SPECIFIC)
             apps = (
-                (amo.FIREFOX, amo.DEFAULT_WEBEXT_MIN_VERSION),
+                (amo.FIREFOX, webext_min),
                 (amo.ANDROID, amo.DEFAULT_WEBEXT_MIN_VERSION_ANDROID),
             )
 
@@ -529,6 +536,9 @@ class ManifestJSONExtractor(object):
         if self.certinfo is not None:
             data.update(self.certinfo.parse())
 
+        if self.type == amo.ADDON_STATICTHEME:
+            data['theme'] = self.get('theme', {})
+
         if not minimal:
             data.update({
                 'is_restart_required': False,
@@ -545,8 +555,6 @@ class ManifestJSONExtractor(object):
                     'permissions': self.get('permissions', []),
                     'content_scripts': self.get('content_scripts', []),
                 })
-            elif self.type == amo.ADDON_STATICTHEME:
-                data['theme'] = self.get('theme', {})
             elif self.type == amo.ADDON_DICT:
                 data['target_locale'] = self.target_locale()
         return data
@@ -650,6 +658,44 @@ class FsyncedZipFile(zipfile.ZipFile):
         self._fsync_file(targetpath)
 
 
+def archive_member_validator(archive, member):
+    """Validate a member of an archive member (TarInfo or ZipInfo)."""
+    filename = getattr(member, 'filename', getattr(member, 'name', None))
+    filesize = getattr(member, 'file_size', getattr(member, 'size', None))
+
+    if filename is None or filesize is None:
+        raise forms.ValidationError(ugettext('Unsupported archive type.'))
+
+    try:
+        force_text(filename)
+    except UnicodeDecodeError:
+        # We can't log the filename unfortunately since it's encoding
+        # is obviously broken :-/
+        log.error('Extraction error, invalid file name encoding in '
+                  'archive: %s' % archive)
+        # L10n: {0} is the name of the invalid file.
+        msg = ugettext(
+            'Invalid file name in archive. Please make sure '
+            'all filenames are utf-8 or latin1 encoded.')
+        raise forms.ValidationError(msg.format(filename))
+
+    if '..' in filename or filename.startswith('/'):
+        log.error('Extraction error, invalid file name (%s) in '
+                  'archive: %s' % (filename, archive))
+        # L10n: {0} is the name of the invalid file.
+        msg = ugettext('Invalid file name in archive: {0}')
+        raise forms.ValidationError(msg.format(filename))
+
+    if filesize > settings.FILE_UNZIP_SIZE_LIMIT:
+        log.error('Extraction error, file too big (%s) for file (%s): '
+                  '%s' % (archive, filename, filesize))
+        # L10n: {0} is the name of the invalid file.
+        raise forms.ValidationError(
+            ugettext(
+                'File exceeding size limit in archive: {0}'
+            ).format(filename))
+
+
 class SafeZip(object):
     def __init__(self, source, mode='r', force_fsync=False):
         self.source = source
@@ -674,34 +720,7 @@ class SafeZip(object):
         info_list = zip_file.infolist()
 
         for info in info_list:
-            try:
-                force_text(info.filename)
-            except UnicodeDecodeError:
-                # We can't log the filename unfortunately since it's encoding
-                # is obviously broken :-/
-                log.error('Extraction error, invalid file name encoding in '
-                          'archive: %s' % self.source)
-                # L10n: {0} is the name of the invalid file.
-                msg = ugettext(
-                    'Invalid file name in archive. Please make sure '
-                    'all filenames are utf-8 or latin1 encoded.')
-                raise forms.ValidationError(msg.format(info.filename))
-
-            if '..' in info.filename or info.filename.startswith('/'):
-                log.error('Extraction error, invalid file name (%s) in '
-                          'archive: %s' % (info.filename, self.source))
-                # L10n: {0} is the name of the invalid file.
-                msg = ugettext('Invalid file name in archive: {0}')
-                raise forms.ValidationError(msg.format(info.filename))
-
-            if info.file_size > settings.FILE_UNZIP_SIZE_LIMIT:
-                log.error('Extraction error, file too big (%s) for file (%s): '
-                          '%s' % (self.source, info.filename, info.file_size))
-                # L10n: {0} is the name of the invalid file.
-                raise forms.ValidationError(
-                    ugettext(
-                        'File exceeding size limit in archive: {0}'
-                    ).format(info.filename))
+            archive_member_validator(self.source, info)
 
         self.info_list = info_list
         self.zip_file = zip_file
@@ -1240,25 +1259,41 @@ def resolve_i18n_message(message, messages, locale, default_locale=None):
     return message['message']
 
 
-def extract_header_img(file_obj, theme_data, dest_path):
-    """Extract static theme header image from `file_obj`."""
+def get_background_images(file_obj, theme_data, header_only=False):
+    """Extract static theme header image from `file_obj` and return in dict."""
     xpi = get_filepath(file_obj)
+    if not theme_data:
+        # we might already have theme_data, but otherwise get it from the xpi.
+        try:
+            parsed_data = parse_xpi(xpi, minimal=True)
+            theme_data = parsed_data.get('theme', {})
+        except forms.ValidationError:
+            # If we can't parse the existing manifest safely return.
+            return {}
     images_dict = theme_data.get('images', {})
     # Get the reference in the manifest.  theme_frame is the Chrome variant.
     header_url = images_dict.get(
         'headerURL', images_dict.get('theme_frame'))
     # And any additional backgrounds too.
-    additional_urls = images_dict.get('additional_backgrounds', [])
+    additional_urls = (
+        images_dict.get('additional_backgrounds', []) if not header_only
+        else [])
     image_urls = [header_url] + additional_urls
+    images = {}
     try:
         with zipfile.ZipFile(xpi, 'r') as source:
             for url in image_urls:
+                _, file_ext = os.path.splitext(text_type(url).lower())
+                if file_ext not in amo.THEME_BACKGROUND_EXTS:
+                    # Just extract image files.
+                    continue
                 try:
-                    source.extract(url, dest_path)
+                    images[url] = source.read(url)
                 except KeyError:
                     pass
     except IOError as ioerror:
         log.debug(ioerror)
+    return images
 
 
 @contextlib.contextmanager

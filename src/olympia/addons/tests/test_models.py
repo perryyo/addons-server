@@ -652,6 +652,15 @@ class TestAddonModels(TestCase):
         a.delete('bye')
         assert len(mail.outbox) == 1
 
+    def test_delete_send_delete_email_false(self):
+        addon_a = addon_factory()
+        addon_b = addon_factory()
+
+        addon_a.delete()
+        assert len(mail.outbox) == 1  # email sent for addon_a
+        addon_b.delete(send_delete_email=False)
+        assert len(mail.outbox) == 1  # no additional email sent for addon_b
+
     def test_delete_disabled_addon_is_added_to_deniedguids(self):
         addon = Addon.unfiltered.get(pk=3615)
         addon.update(status=amo.STATUS_DISABLED)
@@ -783,6 +792,10 @@ class TestAddonModels(TestCase):
         featured_coll = addon.collections.get().featuredcollection_set.get()
         assert featured_coll.locale is None
         # Get the applications this addon is featured for.
+        assert addon.get_featured_by_app() == {amo.FIREFOX.id: {None}}
+
+        featured_coll.update(locale='')
+        # Check that an empty string is considered None.
         assert addon.get_featured_by_app() == {amo.FIREFOX.id: {None}}
 
         featured_coll.update(locale='fr')
